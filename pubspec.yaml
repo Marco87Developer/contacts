@@ -1,0 +1,21 @@
+name: contacts
+description: A set of classes useful for managing contacts.
+version: 0.1.0
+author: Marco Tonelli
+homepage: marco87.dev
+
+environment:
+  sdk: ">=2.12.0-29.10.beta <3.0.0"
+  flutter: ">=1.24.0-10.2.pre <2.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  url_launcher: ^6.0.0-nullsafety.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
