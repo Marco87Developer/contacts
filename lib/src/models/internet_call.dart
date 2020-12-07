@@ -16,10 +16,19 @@ class InternetCall implements Comparable {
   final String internetCall;
   final String label;
 
+  /// Creates an `InternetCall` instance starting from a `Map<String, dynamic>
+  /// map`.
+  ///
+  /// This can be useful for retrieving the instance in a database.
+  ///
   InternetCall.fromMap(Map<String, dynamic> map)
       : internetCall = map[_internetCallKey],
         label = map[_labelKey];
 
+  /// Creates a `Map<String, dynamic> map` representation of this instance.
+  ///
+  /// This can be useful for saving the instance in a database.
+  ///
   Map<String, dynamic> toMap() => {
         _internetCallKey: internetCall,
         _labelKey: label,

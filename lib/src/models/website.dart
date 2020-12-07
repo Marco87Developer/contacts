@@ -16,6 +16,10 @@ class Website implements Comparable {
   final String label;
   final String url;
 
+  /// Creates a `Website` instance starting from a `Map<String, dynamic> map`.
+  ///
+  /// This can be useful for retrieving the instance in a database.
+  ///
   Website.fromMap(Map<String, dynamic> map)
       : label = map[_labelKey],
         url = map[_urlKey];
@@ -24,6 +28,10 @@ class Website implements Comparable {
   ///
   Uri get uri => Uri.parse(Uri.encodeFull(url));
 
+  /// Creates a `Map<String, dynamic> map` representation of this instance.
+  ///
+  /// This can be useful for saving the instance in a database.
+  ///
   Map<String, dynamic> toMap() => {
         _labelKey: label,
         _urlKey: url,

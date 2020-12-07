@@ -21,6 +21,10 @@ class Phone implements Comparable {
   final String label;
   final String local;
 
+  /// Creates a `Phone` instance starting from a `Map<String, dynamic> map`.
+  ///
+  /// This can be useful for retrieving the instance in a database.
+  ///
   Phone.fromMap(Map<String, dynamic> map)
       : countryCode = map[_countryCodeKey],
         label = map[_labelKey],
@@ -34,6 +38,14 @@ class Phone implements Comparable {
   ///
   Future<bool> call() => launch('tel://$number');
 
+  /// Sends a SMS to this phone number.
+  ///
+  Future<bool> sms() => launch('sms://$number');
+
+  /// Creates a `Map<String, dynamic> map` representation of this instance.
+  ///
+  /// This can be useful for saving the instance in a database.
+  ///
   Map<String, dynamic> toMap() => {
         _countryCodeKey: countryCode,
         _labelKey: label,

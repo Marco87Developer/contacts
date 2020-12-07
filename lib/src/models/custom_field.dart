@@ -16,10 +16,19 @@ class CustomField implements Comparable {
   final String content;
   final String label;
 
+  /// Creates a `CustomField` instance starting from a `Map<String, dynamic>
+  /// map`.
+  ///
+  /// This can be useful for retrieving the instance in a database.
+  ///
   CustomField.fromMap(Map<String, dynamic> map)
       : content = map[_contentKey],
         label = map[_labelKey];
 
+  /// Creates a `Map<String, dynamic> map` representation of this instance.
+  ///
+  /// This can be useful for saving the instance in a database.
+  ///
   Map<String, dynamic> toMap() => {
         _contentKey: content,
         _labelKey: label,

@@ -38,6 +38,10 @@ class Address implements Comparable {
   final String province;
   final String street;
 
+  /// Creates an `Address` instance starting from a `Map<String, dynamic> map`.
+  ///
+  /// This can be useful for retrieving the instance in a database.
+  ///
   Address.fromMap(Map<String, dynamic> map)
       : city = map[_cityKey],
         countryRegion = map[_countryRegionKey],
@@ -48,6 +52,10 @@ class Address implements Comparable {
         province = map[_provinceKey],
         street = map[_streetKey];
 
+  /// Creates a `Map<String, dynamic> map` representation of this instance.
+  ///
+  /// This can be useful for saving the instance in a database.
+  ///
   Map<String, dynamic> toMap() => {
         _cityKey: city,
         _countryRegionKey: countryRegion,

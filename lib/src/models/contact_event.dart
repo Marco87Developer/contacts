@@ -16,14 +16,19 @@ class ContactEvent implements Comparable {
   final DateTime date;
   final String title;
 
-  /// It parses `DateTime` from a ISO 8601 format `String`.
+  /// Creates a `ContactEvent` instance starting from a `Map<String, dynamic>
+  /// map`, parsing `DateTime` from a ISO 8601 format string.
+  ///
+  /// This can be useful for retrieving the instance in a database.
   ///
   ContactEvent.fromMap(Map<String, dynamic> map)
       : date = DateTime.parse(map[_dateKey]),
         title = map[_titleKey];
 
-  /// It uses ISO 8601 format in order to get the `String` corresponding to
-  /// [date].
+  /// Creates a `Map<String, dynamic> map` representation of this instance. It
+  /// uses ISO 8601 format in order to get the `String` corresponding to [date].
+  ///
+  /// This can be useful for saving the instance in a database.
   ///
   Map<String, dynamic> toMap() => {
         _dateKey: date.toIso8601String(),

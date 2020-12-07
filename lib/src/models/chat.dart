@@ -16,10 +16,18 @@ class Chat implements Comparable {
   final String chat;
   final String label;
 
+  /// Creates a `Chat` instance starting from a `Map<String, dynamic> map`.
+  ///
+  /// This can be useful for retrieving the instance in a database.
+  ///
   Chat.fromMap(Map<String, dynamic> map)
       : chat = map[_chatKey],
         label = map[_labelKey];
 
+  /// Creates a `Map<String, dynamic> map` representation of this instance.
+  ///
+  /// This can be useful for saving the instance in a database.
+  ///
   Map<String, dynamic> toMap() => {
         _chatKey: chat,
         _labelKey: label,

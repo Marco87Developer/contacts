@@ -2,3 +2,10 @@
 
 * First pre-release.
 * Contains all the basic classes.
+
+## [0.2.0-dev.1] - 2020-12-6
+
+* Added `callAtPhone()` method to `Contact` class.
+* Added `smsAtPhone()` method to `Contact` class.
+* Improved the documentation.
+* The package description has been expanded.

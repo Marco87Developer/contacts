@@ -22,11 +22,19 @@ class Job implements Comparable {
   final String department;
   final String jobTitle;
 
+  /// Creates a `Job` instance starting from a `Map<String, dynamic> map`.
+  ///
+  /// This can be useful for retrieving the instance in a database.
+  ///
   Job.fromMap(Map<String, dynamic> map)
       : company = map[_companyKey],
         department = map[_departmentKey],
         jobTitle = map[_jobTitleKey];
 
+  /// Creates a `Map<String, dynamic> map` representation of this instance.
+  ///
+  /// This can be useful for saving the instance in a database.
+  ///
   Map<String, dynamic> toMap() => {
         _companyKey: company,
         _departmentKey: department,

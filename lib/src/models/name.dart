@@ -44,6 +44,10 @@ class Name implements Comparable {
   final String prefix;
   final String suffix;
 
+  /// Creates a `Name` instance starting from a `Map<String, dynamic> map`.
+  ///
+  /// This can be useful for retrieving the instance in a database.
+  ///
   Name.fromMap(Map<String, dynamic> map)
       : fileAs = map[_fileAsKey],
         firstName = map[_firstNameKey],
@@ -56,6 +60,10 @@ class Name implements Comparable {
         prefix = map[_prefixKey],
         suffix = map[_suffixKey];
 
+  /// Creates a `Map<String, dynamic> map` representation of this instance.
+  ///
+  /// This can be useful for saving the instance in a database.
+  ///
   Map<String, dynamic> toMap() => {
         _fileAsKey: fileAs,
         _firstNameKey: firstName,

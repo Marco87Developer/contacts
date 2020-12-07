@@ -16,10 +16,18 @@ class Email implements Comparable {
   final String address;
   final String label;
 
+  /// Creates an `Email` instance starting from a `Map<String, dynamic> map`.
+  ///
+  /// This can be useful for retrieving the instance in a database.
+  ///
   Email.fromMap(Map<String, dynamic> map)
       : address = map[_addressKey],
         label = map[_labelKey];
 
+  /// Creates a `Map<String, dynamic> map` representation of this instance.
+  ///
+  /// This can be useful for saving the instance in a database.
+  ///
   Map<String, dynamic> toMap() => {
         _addressKey: address,
         _labelKey: label,

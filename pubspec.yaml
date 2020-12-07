@@ -1,5 +1,5 @@
 name: contacts
-description: A set of classes useful for managing contacts.
+description: A set of classes useful for managing contacts. Or order to save data in a database, each class has `toMap()` method, and to retrieve data from the database, each class has `fromMap(Map<String, dynamic> map)`.
 version: 0.1.0-dev.1
 homepage: https://marco87.dev
 

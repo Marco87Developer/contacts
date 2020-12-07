@@ -16,10 +16,19 @@ class Relationship implements Comparable {
   final String label;
   final String name;
 
+  /// Creates a `Relationship` instance starting from a `Map<String, dynamic>
+  /// map`.
+  ///
+  /// This can be useful for retrieving the instance in a database.
+  ///
   Relationship.fromMap(Map<String, dynamic> map)
       : label = map[_labelKey],
         name = map[_nameKey];
 
+  /// Creates a `Map<String, dynamic> map` representation of this instance.
+  ///
+  /// This can be useful for saving the instance in a database.
+  ///
   Map<String, dynamic> toMap() => {
         _labelKey: label,
         _nameKey: name,

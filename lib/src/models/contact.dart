@@ -67,6 +67,10 @@ class Contact implements Comparable {
   final List<Relationship> relationships;
   final List<Website> websites;
 
+  /// Creates an `Contact` instance starting from a `Map<String, dynamic> map`.
+  ///
+  /// This can be useful for retrieving the instance in a database.
+  ///
   Contact.fromMap(Map<String, dynamic> map)
       : addresses = [
           for (Map<String, dynamic> addressMap in map[_addressesKey])
@@ -114,6 +118,40 @@ class Contact implements Comparable {
             Website.fromMap(websiteMap),
         ];
 
+  /// Makes a call to a contact’s phone. It is based on the [label] and,
+  /// optionally, on the position of the number ([index]) in the list of phones
+  /// with the same [label]. In case [index] is `null`, the 1º in the list is
+  /// called.
+  ///
+  Future<bool> callAtPhone({
+    required String label,
+    int? index,
+  }) {
+    List<Phone> phonesForCall =
+        phones.where((phone) => phone.label == label).toList();
+
+    return phonesForCall[index ?? 0].call();
+  }
+
+  /// Sends a SMS to a contact’s phone. It is based on the [label] and,
+  /// optionally, on the position of the number ([index]) in the list of phones
+  /// with the same [label]. In case [index] is `null`, the 1º in the list is
+  /// called.
+  ///
+  Future<bool> smsAtPhone({
+    required String label,
+    int? index,
+  }) {
+    List<Phone> phonesForCall =
+        phones.where((phone) => phone.label == label).toList();
+
+    return phonesForCall[index ?? 0].sms();
+  }
+
+  /// Creates a `Map<String, dynamic> map` representation of this instance.
+  ///
+  /// This can be useful for saving the instance in a database.
+  ///
   Map<String, dynamic> toMap() => {
         _addressesKey: [
           for (Address address in addresses) address.toMap(),
