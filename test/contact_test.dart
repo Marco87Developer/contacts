@@ -14,7 +14,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('Contact.fromMap', () {
-    Map<String, dynamic> map = {
+    final Map<String, dynamic> map = {
       'addresses': [
         {
           'city': 'City',
@@ -112,10 +112,9 @@ void main() {
       ],
     };
 
-    Address address = Address(
+    final Address address = Address(
       city: 'City',
       countryRegion: 'CountryRegion',
-      description: 'Description',
       label: 'Label',
       postalCode: 'PostalCode',
       postOfficeBox: 'PostOfficeBox',
@@ -123,25 +122,26 @@ void main() {
       street: 'Street',
     );
 
-    DateTime birthday = DateTime(2020, 2, 27, 13, 27, 0);
+    final DateTime birthday = DateTime(2020, 2, 27, 13, 27, 0);
 
-    Chat chat = Chat(chat: 'Chat', label: 'Label');
+    final Chat chat = Chat(chat: 'Chat', label: 'Label');
 
-    CustomField customField = CustomField(content: 'Content', label: 'Label');
+    final CustomField customField =
+        CustomField(content: 'Content', label: 'Label');
 
-    Email email1 = Email(address: 'email1@email.com', label: 'Personal');
-    Email email2 = Email(address: 'email2@email.com', label: 'Personal');
+    final Email email1 = Email(address: 'email1@email.com', label: 'Personal');
+    final Email email2 = Email(address: 'email2@email.com', label: 'Personal');
 
-    ContactEvent event = ContactEvent(
+    final ContactEvent event = ContactEvent(
         date: DateTime(2020, 2, 27, 13, 27, 0), title: 'First event');
 
-    InternetCall internetCall =
+    final InternetCall internetCall =
         InternetCall(internetCall: 'Internet call', label: 'Label');
 
-    Job job = Job(
+    final Job job = Job(
         company: 'Company', department: 'Department', jobTitle: 'Job title');
 
-    Name name = Name(
+    final Name name = Name(
       fileAs: 'File as',
       firstName: 'First name',
       lastName: 'Last name',
@@ -154,21 +154,23 @@ void main() {
       suffix: 'Suffix',
     );
 
-    Phone phone1 = Phone(
+    final Phone phone1 = Phone(
       countryCode: '39',
       label: 'Personal',
       local: '0123456789',
     );
-    Phone phone2 = Phone(
+    final Phone phone2 = Phone(
       countryCode: '1',
       label: 'Personal',
       local: '0123456789',
     );
 
-    Relationship relationship1 = Relationship(label: 'Friend1', name: 'Name1');
-    Relationship relationship2 = Relationship(label: 'Friend2', name: 'Name2');
+    final Relationship relationship1 =
+        Relationship(label: 'Friend1', name: 'Name1');
+    final Relationship relationship2 =
+        Relationship(label: 'Friend2', name: 'Name2');
 
-    Website website = Website(label: 'Personal', url: 'url1.com');
+    final Website website = Website(label: 'Personal', url: 'url1.com');
 
     expect(
       Contact.fromMap(map),
@@ -191,10 +193,9 @@ void main() {
   });
 
   test('toMap()', () {
-    Address address = Address(
+    final Address address = Address(
       city: 'City',
       countryRegion: 'CountryRegion',
-      description: 'Description',
       label: 'Label',
       postalCode: 'PostalCode',
       postOfficeBox: 'PostOfficeBox',
@@ -202,25 +203,26 @@ void main() {
       street: 'Street',
     );
 
-    DateTime birthday = DateTime(2020, 2, 27, 13, 27, 0);
+    final DateTime birthday = DateTime(2020, 2, 27, 13, 27, 0);
 
-    Chat chat = Chat(chat: 'Chat', label: 'Label');
+    final Chat chat = Chat(chat: 'Chat', label: 'Label');
 
-    CustomField customField = CustomField(content: 'Content', label: 'Label');
+    final CustomField customField =
+        CustomField(content: 'Content', label: 'Label');
 
-    Email email1 = Email(address: 'email1@email.com', label: 'Personal');
-    Email email2 = Email(address: 'email2@email.com', label: 'Personal');
+    final Email email1 = Email(address: 'email1@email.com', label: 'Personal');
+    final Email email2 = Email(address: 'email2@email.com', label: 'Personal');
 
-    ContactEvent event = ContactEvent(
+    final ContactEvent event = ContactEvent(
         date: DateTime(2020, 2, 27, 13, 27, 0), title: 'First event');
 
-    InternetCall internetCall =
+    final InternetCall internetCall =
         InternetCall(internetCall: 'Internet call', label: 'Label');
 
-    Job job = Job(
+    final Job job = Job(
         company: 'Company', department: 'Department', jobTitle: 'Job title');
 
-    Name name = Name(
+    final Name name = Name(
       fileAs: 'File as',
       firstName: 'First name',
       lastName: 'Last name',
@@ -233,23 +235,25 @@ void main() {
       suffix: 'Suffix',
     );
 
-    Phone phone1 = Phone(
+    final Phone phone1 = Phone(
       countryCode: '39',
       label: 'Personal',
       local: '0123456789',
     );
-    Phone phone2 = Phone(
+    final Phone phone2 = Phone(
       countryCode: '1',
       label: 'Personal',
       local: '0123456789',
     );
 
-    Relationship relationship1 = Relationship(label: 'Friend1', name: 'Name1');
-    Relationship relationship2 = Relationship(label: 'Friend2', name: 'Name2');
+    final Relationship relationship1 =
+        Relationship(label: 'Friend1', name: 'Name1');
+    final Relationship relationship2 =
+        Relationship(label: 'Friend2', name: 'Name2');
 
-    Website website = Website(label: 'Personal', url: 'url1.com');
+    final Website website = Website(label: 'Personal', url: 'url1.com');
 
-    Contact contact = Contact(
+    final Contact contact = Contact(
       addresses: [address],
       birthday: birthday,
       chats: [chat],
@@ -270,7 +274,6 @@ void main() {
         {
           'city': 'City',
           'countryRegion': 'CountryRegion',
-          'description': 'Description',
           'label': 'Label',
           'postalCode': 'PostalCode',
           'postOfficeBox': 'PostOfficeBox',
@@ -368,7 +371,6 @@ void main() {
     Address address = Address(
       city: 'City',
       countryRegion: 'CountryRegion',
-      description: 'Description',
       label: 'Label',
       postalCode: 'PostalCode',
       postOfficeBox: 'PostOfficeBox',

@@ -28,15 +28,17 @@ const String _websitesKey = 'websites';
 
 /// This class models a reference to an address.
 ///
-/// It **requires** these fields: `Name` [name] and `List<Phone>` [phones].
-///
-/// Also, it has *optional* fields: `List<Address>` [addresses], `DateTime?`
-/// [birthday], `List<Chat>` chats, `List<CustomField>` [customFields],
-/// `List<Email>` [emails], `List<ContactEvent>` [events], `List<InternetCall>`
-/// [internetCalls], `List<Job>` [jobs], `String` [notes], `List<Relationship>`
-/// [relationships] and `List<Website>` [websites].
-///
 class Contact implements Comparable {
+  /// A reference to an address.
+  ///
+  /// It **requires** these fields: `Name` [name] and `List<Phone>` [phones].
+  ///
+  /// Also, it has *optional* fields: `List<Address>` [addresses], `DateTime?`
+  /// [birthday], `List<Chat>` chats, `List<CustomField>` [customFields],
+  /// `List<Email>` [emails], `List<ContactEvent>` [events], `List<InternetCall>`
+  /// [internetCalls], `List<Job>` [jobs], `String` [notes], `List<Relationship>`
+  /// [relationships] and `List<Website>` [websites].
+  ///
   const Contact({
     this.addresses = const <Address>[],
     this.birthday,
@@ -53,21 +55,7 @@ class Contact implements Comparable {
     this.websites = const <Website>[],
   });
 
-  final List<Address> addresses;
-  final DateTime? birthday;
-  final List<Chat> chats;
-  final List<CustomField> customFields;
-  final List<Email> emails;
-  final List<ContactEvent> events;
-  final List<InternetCall> internetCalls;
-  final List<Job> jobs;
-  final Name name;
-  final String notes;
-  final List<Phone> phones;
-  final List<Relationship> relationships;
-  final List<Website> websites;
-
-  /// Creates an `Contact` instance starting from a `Map<String, dynamic> map`.
+  /// Creates a `Contact` instance starting from a `Map<String, dynamic> map`.
   ///
   /// This can be useful for retrieving the instance in a database.
   ///
@@ -118,6 +106,45 @@ class Contact implements Comparable {
             Website.fromMap(websiteMap),
         ];
 
+  /// A list of addresses that belong to this contact.
+  final List<Address> addresses;
+
+  /// The birthday of this contact.
+  final DateTime? birthday;
+
+  /// A list of chats that belong to this contact.
+  final List<Chat> chats;
+
+  /// A list of custom fields.
+  final List<CustomField> customFields;
+
+  /// A list of emails that belong to this contact.
+  final List<Email> emails;
+
+  /// A list of events that belong to this contact.
+  final List<ContactEvent> events;
+
+  /// A list of Internet call references that belong to this contact.
+  final List<InternetCall> internetCalls;
+
+  /// A list of the jobs that this contact performs.
+  final List<Job> jobs;
+
+  /// The complete name of this contact.
+  final Name name;
+
+  /// Some notes relating to this contact.
+  final String notes;
+
+  /// A list of phone numbers that belong to this contact.
+  final List<Phone> phones;
+
+  /// A list of relationships of this contact.
+  final List<Relationship> relationships;
+
+  /// A list of websites that belong to this contact.
+  final List<Website> websites;
+
   /// Makes a call to a contact’s phone. It is based on the [label] and,
   /// optionally, on the position of the number ([index]) in the list of phones
   /// with the same [label]. In case [index] is `null`, the 1º in the list is
@@ -127,7 +154,7 @@ class Contact implements Comparable {
     required String label,
     int? index,
   }) {
-    List<Phone> phonesForCall =
+    final List<Phone> phonesForCall =
         phones.where((phone) => phone.label == label).toList();
 
     return phonesForCall[index ?? 0].call();
@@ -142,7 +169,7 @@ class Contact implements Comparable {
     required String label,
     int? index,
   }) {
-    List<Phone> phonesForCall =
+    final List<Phone> phonesForCall =
         phones.where((phone) => phone.label == label).toList();
 
     return phonesForCall[index ?? 0].sms();
@@ -196,13 +223,13 @@ class Contact implements Comparable {
   @override
   int compareTo(covariant Contact other) {
     // 1º comparison
-    int comparison1 = name.compareTo(other.name);
+    final int comparison1 = name.compareTo(other.name);
     if (comparison1 != 0) return comparison1;
 
     // Last comparison
-    DateTime nonNullBirthday = birthday ?? DateTime(0);
-    DateTime nonNullOtherBirthday = other.birthday ?? DateTime(0);
-    int comparison3 = nonNullBirthday.compareTo(nonNullOtherBirthday);
+    final DateTime nonNullBirthday = birthday ?? DateTime(0);
+    final DateTime nonNullOtherBirthday = other.birthday ?? DateTime(0);
+    final int comparison3 = nonNullBirthday.compareTo(nonNullOtherBirthday);
     return comparison3;
   }
 
@@ -223,13 +250,22 @@ class Contact implements Comparable {
         websites,
       );
 
+  /// Returns if this instance is less than the [other].
+  ///
   bool operator <(covariant Contact other) => compareTo(other) < 0;
 
+  /// Return if this instance is less than or equal to the [other].
+  ///
   bool operator <=(covariant Contact other) => compareTo(other) <= 0;
 
+  @override
   bool operator ==(covariant Contact other) => compareTo(other) == 0;
 
+  /// Return if this instance is greater than or equal to the [other].
+  ///
   bool operator >=(covariant Contact other) => compareTo(other) >= 0;
 
+  /// Return if this instance is greater than the [other].
+  ///
   bool operator >(covariant Contact other) => compareTo(other) > 0;
 }

@@ -3,20 +3,18 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('Address.fromMap()', () {
-    Map<String, dynamic> map = {
+    final Map<String, dynamic> map = {
       'city': 'City',
       'countryRegion': 'CountryRegion',
-      'description': 'Description',
       'label': 'Label',
       'postalCode': 'PostalCode',
       'postOfficeBox': 'PostOfficeBox',
       'province': 'Province',
       'street': 'Street',
     };
-    Map<String, dynamic> mapWithEmptyPostOfficeBox = {
+    final Map<String, dynamic> mapWithEmptyPostOfficeBox = {
       'city': 'City',
       'countryRegion': 'CountryRegion',
-      'description': 'Description',
       'label': 'Label',
       'postalCode': 'PostalCode',
       'postOfficeBox': '',
@@ -29,7 +27,6 @@ void main() {
       Address(
         city: 'City',
         countryRegion: 'CountryRegion',
-        description: 'Description',
         label: 'Label',
         postalCode: 'PostalCode',
         postOfficeBox: 'PostOfficeBox',
@@ -42,7 +39,6 @@ void main() {
       Address(
         city: 'City',
         countryRegion: 'CountryRegion',
-        description: 'Description',
         label: 'Label',
         postalCode: 'PostalCode',
         postOfficeBox: '',
@@ -53,10 +49,9 @@ void main() {
   });
 
   test('toMap()', () {
-    Address address = Address(
+    final Address address = Address(
       city: 'City',
       countryRegion: 'CountryRegion',
-      description: 'Description',
       label: 'Label',
       postalCode: 'PostalCode',
       postOfficeBox: 'PostOfficeBox',
@@ -69,7 +64,6 @@ void main() {
       {
         'city': 'City',
         'countryRegion': 'CountryRegion',
-        'description': 'Description',
         'label': 'Label',
         'postalCode': 'PostalCode',
         'postOfficeBox': 'PostOfficeBox',
@@ -80,40 +74,36 @@ void main() {
   });
 
   test('compareTo()', () {
-    Address address1 = Address(
+    final Address address1 = Address(
       city: 'City1',
       countryRegion: 'CountryRegion1',
-      description: 'Description1',
       label: 'Label1',
       postalCode: 'PostalCode1',
       postOfficeBox: 'PostOfficeBox1',
       province: 'Province1',
       street: 'Street1',
     );
-    Address address2 = Address(
+    final Address address2 = Address(
       city: 'City2',
       countryRegion: 'CountryRegion2',
-      description: 'Description2',
       label: 'Label2',
       postalCode: 'PostalCode2',
       postOfficeBox: 'PostOfficeBox2',
       province: 'Province2',
       street: 'Street2',
     );
-    Address address3 = Address(
+    final Address address3 = Address(
       city: 'City1',
       countryRegion: 'CountryRegion1',
-      description: 'Description1',
       label: 'Label1',
       postalCode: 'PostalCode1',
       postOfficeBox: 'PostOfficeBox1',
       province: 'Province1',
       street: 'Street1',
     );
-    Address address4 = Address(
+    final Address address4 = Address(
       city: 'City1',
       countryRegion: 'CountryRegion4',
-      description: 'Description1',
       label: 'Label1',
       postalCode: 'PostalCode1',
       postOfficeBox: 'PostOfficeBox1',
