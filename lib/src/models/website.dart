@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 const String _labelKey = 'label';
 const String _urlKey = 'url';
@@ -28,6 +29,18 @@ class Website implements Comparable {
 
   /// The URL of this website.
   final String url;
+
+  /// Open this website.
+  ///
+  Future<bool> open({
+    bool forceSafariVC = false,
+    bool forceWebView = false,
+  }) =>
+      launch(
+        '$uri',
+        forceSafariVC: forceSafariVC,
+        forceWebView: forceWebView,
+      );
 
   /// Gets the corresponding `Uri` for this website URL.
   ///

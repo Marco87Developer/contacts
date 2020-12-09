@@ -15,8 +15,8 @@ class Relationship implements Comparable {
     required this.name,
   });
 
-  /// Creates a `Relationship` instance starting from a `Map<String, dynamic>
-  /// map`.
+  /// Creates a `Relationship` instance starting from a
+  /// `Map<String, dynamic> map`.
   ///
   /// This can be useful for retrieving the instance in a database.
   ///

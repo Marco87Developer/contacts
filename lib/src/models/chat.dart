@@ -26,8 +26,8 @@ class Chat implements Comparable {
   /// The reference name to the chat.
   final String chat;
 
-  /// The chat label. It is useful for distinguishing different chats
-  /// that belong to the same person.
+  /// The chat label. It is useful for distinguishing different chats that
+  /// belong to the same person.
   final String label;
 
   /// Creates a `Map<String, dynamic> map` representation of this instance.

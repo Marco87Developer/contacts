@@ -16,7 +16,8 @@ const String _suffixKey = 'suffix';
 class Name implements Comparable {
   /// A reference to a person’s name.
   ///
-  /// It **requires** these fields: `String` [firstName] and `String` [lastName].
+  /// It **requires** these fields: `String` [firstName] and
+  /// `String` [lastName].
   ///
   /// Also, it has *optional* fields: `String` [fileAs], `String` [middleName],
   /// `String` [nickname], `String` [phoneticFirst], `String` [phoneticLast],

@@ -15,8 +15,9 @@ class ContactEvent implements Comparable {
     required this.title,
   });
 
-  /// Creates a `ContactEvent` instance starting from a `Map<String, dynamic>
-  /// map`, parsing `DateTime` from a ISO 8601 format string.
+  /// Creates a `ContactEvent` instance starting from a
+  /// `Map<String, dynamic> map`, parsing `DateTime` from a ISO 8601 format
+  /// string.
   ///
   /// This can be useful for retrieving the instance in a database.
   ///

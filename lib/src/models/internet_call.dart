@@ -8,15 +8,16 @@ const String _labelKey = 'label';
 class InternetCall implements Comparable {
   /// A reference to an internet call reference.
   ///
-  /// It **requires** these fields: `String` [internetCall] and `String` [label].
+  /// It **requires** these fields: `String` [internetCall] and
+  /// `String` [label].
   ///
   const InternetCall({
     required this.internetCall,
     required this.label,
   });
 
-  /// Creates an `InternetCall` instance starting from a `Map<String, dynamic>
-  /// map`.
+  /// Creates an `InternetCall` instance starting from a
+  /// `Map<String, dynamic> map`.
   ///
   /// This can be useful for retrieving the instance in a database.
   ///

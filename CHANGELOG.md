@@ -3,10 +3,12 @@
 * First pre-release.
 * Contains all the basic classes.
 
-## [0.2.0-dev.1] - 2020-12-8
+## [0.2.0-dev.1] - 2020-12-9
 
-* Added `callAtPhone()` method to `Contact` class.
-* Added `smsAtPhone()` method to `Contact` class.
+* Added `call()` method to `Contact` class.
+* Added `sms()` method to `Contact` class.
+* Added `mailTo()` method to `Email` class.
+* Improved README.md file.
 * Improved the documentation.
 * The package description has been expanded.
 * Added the use of [`pedantic`](https://pub.dev/packages/pedantic) package.

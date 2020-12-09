@@ -35,9 +35,10 @@ class Contact implements Comparable {
   ///
   /// Also, it has *optional* fields: `List<Address>` [addresses], `DateTime?`
   /// [birthday], `List<Chat>` chats, `List<CustomField>` [customFields],
-  /// `List<Email>` [emails], `List<ContactEvent>` [events], `List<InternetCall>`
-  /// [internetCalls], `List<Job>` [jobs], `String` [notes], `List<Relationship>`
-  /// [relationships] and `List<Website>` [websites].
+  /// `List<Email>` [emails], `List<ContactEvent>` [events],
+  /// `List<InternetCall>` [internetCalls], `List<Job>` [jobs], `String`
+  /// [notes], `List<Relationship>` [relationships] and `List<Website>`
+  /// [websites].
   ///
   const Contact({
     this.addresses = const <Address>[],
@@ -150,7 +151,7 @@ class Contact implements Comparable {
   /// with the same [label]. In case [index] is `null`, the 1º in the list is
   /// called.
   ///
-  Future<bool> callAtPhone({
+  Future<bool> call({
     required String label,
     int? index,
   }) {
@@ -160,19 +161,20 @@ class Contact implements Comparable {
     return phonesForCall[index ?? 0].call();
   }
 
-  /// Sends a SMS to a contact’s phone. It is based on the [label] and,
-  /// optionally, on the position of the number ([index]) in the list of phones
-  /// with the same [label]. In case [index] is `null`, the 1º in the list is
-  /// called.
+  /// Sends a SMS to a contact’s phone. It requires a [body]. It is based on the
+  /// [label] and, optionally, on the position of the number ([index]) in the
+  /// list of phones with the same [label]. In case [index] is `null`, the 1º in
+  /// the list is called.
   ///
-  Future<bool> smsAtPhone({
-    required String label,
+  Future<bool> sms({
+    required String body,
     int? index,
+    required String label,
   }) {
-    final List<Phone> phonesForCall =
+    final List<Phone> callablePhones =
         phones.where((phone) => phone.label == label).toList();
 
-    return phonesForCall[index ?? 0].sms();
+    return callablePhones[index ?? 0].sms(body: body);
   }
 
   /// Creates a `Map<String, dynamic> map` representation of this instance.

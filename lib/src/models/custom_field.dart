@@ -15,8 +15,8 @@ class CustomField implements Comparable {
     required this.label,
   });
 
-  /// Creates a `CustomField` instance starting from a `Map<String, dynamic>
-  /// map`.
+  /// Creates a `CustomField` instance starting from a
+  /// `Map<String, dynamic> map`.
   ///
   /// This can be useful for retrieving the instance in a database.
   ///

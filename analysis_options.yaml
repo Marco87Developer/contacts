@@ -1,4 +1,4 @@
-include: package:pedantic/analysis_options.1.8.0.yaml
+include: package:pedantic/analysis_options.1.9.0.yaml
 
 analyzer:
   enable-experiment:
@@ -23,7 +23,6 @@ linter:
     - unnecessary_statements
     - unrelated_type_equality_checks
     - unsafe_html
-    - use_key_in_widget_constructors
     - valid_regexps
     # Style
     - always_declare_return_types
@@ -71,7 +70,6 @@ linter:
     - prefer_const_constructors_in_immutables
     - prefer_contains
     - prefer_equal_for_default_values
-    - prefer_expression_function_bodies
     - prefer_final_in_for_each
     - prefer_final_locals
     - prefer_foreach

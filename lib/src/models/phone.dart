@@ -39,17 +39,36 @@ class Phone implements Comparable {
   /// The local part of this phone number.
   final String local;
 
-  /// Gets the number string in the “+[countryCode][local]” format.
+  /// Gets the number string in the “+[countryCode] [local]” format.
   ///
-  String get number => '+$countryCode$local'.trim();
+  String get number => '+$countryCode $local'.trim();
 
   /// Calls to this phone number.
   ///
-  Future<bool> call() => launch('tel://$number');
+  Future<bool> call() {
+    final Uri uri = Uri(
+      path: number,
+      scheme: 'tel',
+    );
 
-  /// Sends a SMS to this phone number.
+    return launch('$uri');
+  }
+
+  /// Sends a SMS to this phone number. It requires a [body].
   ///
-  Future<bool> sms() => launch('sms://$number');
+  Future<bool> sms({
+    required String body,
+  }) {
+    final Uri uri = Uri(
+      path: number,
+      queryParameters: {
+        'body': body,
+      },
+      scheme: 'sms',
+    );
+
+    return launch('$uri');
+  }
 
   /// Creates a `Map<String, dynamic> map` representation of this instance.
   ///

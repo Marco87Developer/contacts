@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 const String _addressKey = 'address';
 const String _labelKey = 'label';
@@ -29,6 +30,25 @@ class Email implements Comparable {
   /// The label of this email. It is useful for distinguishing different email
   /// addresses.
   final String label;
+
+  /// Sends an email to this email [address]. The [subject] and the [body] of
+  /// the email are required.
+  ///
+  Future<bool> mailTo({
+    required String subject,
+    required String body,
+  }) async {
+    final Uri uri = Uri(
+      path: address,
+      queryParameters: {
+        'subject': subject,
+        'body': body,
+      },
+      scheme: 'mailto',
+    );
+
+    return canLaunch('$uri');
+  }
 
   /// Creates a `Map<String, dynamic> map` representation of this instance.
   ///
