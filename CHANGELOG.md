@@ -1,5 +1,6 @@
 ## [0.3.0-nullsafety.1] - 2020-12-11
 
+* Minor changes to `analysis_options.yaml`.
 * Changed version in order to show that it is null safety.
 
 ## [0.2.0-dev.1] - 2020-12-9
