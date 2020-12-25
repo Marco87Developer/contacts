@@ -1,10 +1,11 @@
-![](https://img.shields.io/badge/pub-0.2.0--dev.1-yellow)
+![](https://img.shields.io/badge/pub-0.3.0--nullsafety.1-yellow)
 
 # Contacts
 
-A set of classes useful for managing contacts. In order to save data in a database, each class has `toMap()` method, and to retrieve data from the database, each class has `fromMap(Map<String, dynamic> map)`.
+A set of classes useful for managing contacts. In order to save data in a database, each class has `toMap()` method, and to retrieve data from the database, each class has `fromMap(Map<String, dynamic> map)` method.
 
 ## `Contact` class
+
 The main class of this package is definitely `Contacts`. All the other classes, although they can be useful separately, were created thinking about the formation of a contact and interaction with it.
 
 For the choice of contact information, I referred to those that can be saved for a contact in *[Google Contacts](https://contacts.google.com)*. The idea is to make it easy to save a contact’s information in an exhaustive and, at the same time, well organized way.
