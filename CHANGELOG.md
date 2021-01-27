@@ -1,3 +1,7 @@
+## [0.3.0-nullsafety.2] - 2021-1-26
+
+* Updated `url_launcher` dependency.
+
 ## [0.3.0-nullsafety.1] - 2020-12-11
 
 * Minor changes to `analysis_options.yaml`.
