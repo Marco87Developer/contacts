@@ -1,4 +1,8 @@
-## [0.3.0-nullsafety.2] - 2021-1-26
+## [1.0.0] - 2021-02-23
+
+* Stable null safety release.
+
+## [0.3.0-nullsafety.2] - 2021-01-26
 
 * Updated `url_launcher` dependency.
 

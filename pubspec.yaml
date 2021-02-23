@@ -1,19 +1,19 @@
 name: contacts
 description: A set of classes useful for managing contacts, for save in a database and retrieve from it.
-version: 0.3.0-nullsafety.2
+version: 1.0.0
 repository: https://github.com/Marco87Developer/contacts
 homepage: https://marco87.dev
 
 environment:
-  sdk: ">=2.12.0-133.2.beta <3.0.0"
-  flutter: ">=1.25.0-8.2.pre <2.0.0"
+  sdk: ">=2.12.0-0 <3.0.0"
+  # flutter: ">=1.25.0-8.2.pre <2.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  pedantic: ^1.10.0-nullsafety.3
-  url_launcher: ^6.0.0-nullsafety.4
+  pedantic: ^1.10.0
+  url_launcher: ^6.0.0-nullsafety.7
 
 dev_dependencies:
   flutter_test:
