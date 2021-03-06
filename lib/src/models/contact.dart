@@ -28,6 +28,7 @@ const String _websitesKey = 'websites';
 
 /// This class models a reference to an address.
 ///
+@immutable
 class Contact implements Comparable {
   /// A reference to an address.
   ///

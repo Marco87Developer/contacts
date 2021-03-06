@@ -5,6 +5,7 @@ const String _labelKey = 'label';
 
 /// This class models a reference to an address.
 ///
+@immutable
 class Chat implements Comparable {
   /// A reference to an address.
   ///

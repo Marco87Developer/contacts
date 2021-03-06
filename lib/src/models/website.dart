@@ -6,6 +6,7 @@ const String _urlKey = 'url';
 
 /// This class models a reference to a website address.
 ///
+@immutable
 class Website implements Comparable {
   /// A reference to a website address.
   ///

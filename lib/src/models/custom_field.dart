@@ -5,6 +5,7 @@ const String _labelKey = 'label';
 
 /// This class models a reference to a custom field.
 ///
+@immutable
 class CustomField implements Comparable {
   /// A reference to a custom field.
   ///

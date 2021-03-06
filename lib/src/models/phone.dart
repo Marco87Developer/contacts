@@ -7,6 +7,7 @@ const String _localKey = 'local';
 
 /// This class models a reference to a phone’s number.
 ///
+@immutable
 class Phone implements Comparable {
   /// A reference to a phone’s number.
   ///

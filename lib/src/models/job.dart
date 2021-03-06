@@ -6,6 +6,7 @@ const _jobTitleKey = 'jobTitle';
 
 /// This class models a reference to a job.
 ///
+@immutable
 class Job implements Comparable {
   /// A reference to a job.
   ///

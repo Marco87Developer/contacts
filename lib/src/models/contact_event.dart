@@ -5,6 +5,7 @@ const String _titleKey = 'title';
 
 /// This class models a reference to a contact’s event.
 ///
+@immutable
 class ContactEvent implements Comparable {
   /// A reference to a contact’s event.
   ///

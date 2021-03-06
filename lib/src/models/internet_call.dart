@@ -5,6 +5,7 @@ const String _labelKey = 'label';
 
 /// This class models a reference to an internet call reference.
 ///
+@immutable
 class InternetCall implements Comparable {
   /// A reference to an internet call reference.
   ///

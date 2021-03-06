@@ -5,18 +5,19 @@ repository: https://github.com/Marco87Developer/contacts
 homepage: https://marco87.dev
 
 environment:
-  sdk: ">=2.12.0-0 <3.0.0"
-  # flutter: ">=1.25.0-8.2.pre <2.0.0"
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  pedantic: ^1.10.0
-  url_launcher: ^6.0.0-nullsafety.7
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  mocktail: ^0.0.2-dev.2
+  pedantic: ^1.11.0
+  url_launcher: ^6.0.2
 
 flutter:

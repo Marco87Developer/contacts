@@ -13,6 +13,7 @@ const String _suffixKey = 'suffix';
 
 /// This class models a reference to a person’s name.
 ///
+@immutable
 class Name implements Comparable {
   /// A reference to a person’s name.
   ///

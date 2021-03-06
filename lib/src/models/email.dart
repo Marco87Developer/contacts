@@ -6,6 +6,7 @@ const String _labelKey = 'label';
 
 /// This class models a reference to an email address.
 ///
+@immutable
 class Email implements Comparable {
   /// A reference to an email address.
   ///

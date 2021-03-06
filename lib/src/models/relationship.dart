@@ -5,6 +5,7 @@ const String _nameKey = 'name';
 
 /// This class models a reference to a personal relationship.
 ///
+@immutable
 class Relationship implements Comparable {
   /// A reference to a personal relationship.
   ///
