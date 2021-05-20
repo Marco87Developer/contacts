@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('Phone.fromMap()', () {
-    final Map<String, dynamic> map = {
+    final Map<String, dynamic> map = <String, dynamic>{
       'countryCode': '39',
       'label': 'Personal',
       'local': '0123456789',
@@ -11,12 +11,12 @@ void main() {
 
     expect(
       Phone.fromMap(map),
-      Phone(countryCode: '39', label: 'Personal', local: '0123456789'),
+      const Phone(countryCode: '39', label: 'Personal', local: '0123456789'),
     );
   });
 
   test('toMap()', () {
-    final Phone phone =
+    const Phone phone =
         Phone(countryCode: '39', label: 'Personal', local: '0123456789');
 
     expect(
@@ -26,13 +26,13 @@ void main() {
   });
 
   test('compareTo()', () {
-    final Phone phone1 =
+    const Phone phone1 =
         Phone(countryCode: '39', label: 'Personal', local: '0123456770');
-    final Phone phone2 =
+    const Phone phone2 =
         Phone(countryCode: '39', label: 'Personal', local: '0123456789');
-    final Phone phone3 =
+    const Phone phone3 =
         Phone(countryCode: '39', label: 'Personal2', local: '0123456789');
-    final Phone phone4 =
+    const Phone phone4 =
         Phone(countryCode: '1', label: 'Personal', local: '0123456789');
 
     expect(phone1.compareTo(phone2), -1);
@@ -49,21 +49,21 @@ void main() {
   });
 
   test('call()', () {
-    final Phone phone =
+    const Phone phone =
         Phone(countryCode: '39', label: 'Personal', local: '0123456770');
 
     // TODO: do some test.
   });
 
   test('number', () {
-    final Phone phone =
+    const Phone phone =
         Phone(countryCode: '39', label: 'Personal', local: '0123456770');
 
     expect(phone.number, '+39 0123456770');
   });
 
   test('toString()', () {
-    final Phone phone =
+    const Phone phone =
         Phone(countryCode: '39', label: 'Personal', local: '0123456770');
 
     expect('$phone', '(Personal)+39 0123456770');

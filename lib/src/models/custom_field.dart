@@ -6,7 +6,7 @@ const String _labelKey = 'label';
 /// This class models a reference to a custom field.
 ///
 @immutable
-class CustomField implements Comparable {
+class CustomField implements Comparable<CustomField> {
   /// A reference to a custom field.
   ///
   /// It **requires** these fields: `String` [content] and `String` [label].
@@ -22,8 +22,8 @@ class CustomField implements Comparable {
   /// This can be useful for retrieving the instance in a database.
   ///
   CustomField.fromMap(Map<String, dynamic> map)
-      : content = map[_contentKey],
-        label = map[_labelKey];
+      : content = '${map[_contentKey]}',
+        label = '${map[_labelKey]}';
 
   /// The content of this field.
   final String content;
@@ -36,7 +36,7 @@ class CustomField implements Comparable {
   ///
   /// This can be useful for saving the instance in a database.
   ///
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toMap() => <String, dynamic>{
         _contentKey: content,
         _labelKey: label,
       };

@@ -7,7 +7,7 @@ const String _urlKey = 'url';
 /// This class models a reference to a website address.
 ///
 @immutable
-class Website implements Comparable {
+class Website implements Comparable<Website> {
   /// A reference to a website address.
   ///
   /// It **requires** these fields: `String` [label] and `String` [url].
@@ -22,8 +22,8 @@ class Website implements Comparable {
   /// This can be useful for retrieving the instance in a database.
   ///
   Website.fromMap(Map<String, dynamic> map)
-      : label = map[_labelKey],
-        url = map[_urlKey];
+      : label = '${map[_labelKey]}',
+        url = '${map[_urlKey]}';
 
   /// The website label. It is useful for distinguishing different websites.
   final String label;
@@ -51,7 +51,7 @@ class Website implements Comparable {
   ///
   /// This can be useful for saving the instance in a database.
   ///
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toMap() => <String, dynamic>{
         _labelKey: label,
         _urlKey: url,
       };

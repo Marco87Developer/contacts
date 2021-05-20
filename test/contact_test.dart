@@ -14,7 +14,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('Contact.fromMap', () {
-    final Map<String, dynamic> map = {
+    final Map<String, dynamic> map = <String, dynamic>{
       'addresses': [
         {
           'city': 'City',
@@ -112,7 +112,7 @@ void main() {
       ],
     };
 
-    final Address address = Address(
+    const Address address = Address(
       city: 'City',
       countryRegion: 'CountryRegion',
       label: 'Label',
@@ -124,24 +124,27 @@ void main() {
 
     final DateTime birthday = DateTime(2020, 2, 27, 13, 27, 0);
 
-    final Chat chat = Chat(chat: 'Chat', label: 'Label');
+    const Chat chat = Chat(chat: 'Chat', label: 'Label');
 
-    final CustomField customField =
+    const CustomField customField =
         CustomField(content: 'Content', label: 'Label');
 
-    final Email email1 = Email(address: 'email1@email.com', label: 'Personal');
-    final Email email2 = Email(address: 'email2@email.com', label: 'Personal');
+    const Email email1 = Email(address: 'email1@email.com', label: 'Personal');
+    const Email email2 = Email(address: 'email2@email.com', label: 'Personal');
 
     final ContactEvent event = ContactEvent(
         date: DateTime(2020, 2, 27, 13, 27, 0), title: 'First event');
 
-    final InternetCall internetCall =
+    const InternetCall internetCall =
         InternetCall(internetCall: 'Internet call', label: 'Label');
 
-    final Job job = Job(
-        company: 'Company', department: 'Department', jobTitle: 'Job title');
+    const Job job = Job(
+      company: 'Company',
+      department: 'Department',
+      jobTitle: 'Job title',
+    );
 
-    final Name name = Name(
+    const Name name = Name(
       fileAs: 'File as',
       firstName: 'First name',
       lastName: 'Last name',
@@ -154,23 +157,23 @@ void main() {
       suffix: 'Suffix',
     );
 
-    final Phone phone1 = Phone(
+    const Phone phone1 = Phone(
       countryCode: '39',
       label: 'Personal',
       local: '0123456789',
     );
-    final Phone phone2 = Phone(
+    const Phone phone2 = Phone(
       countryCode: '1',
       label: 'Personal',
       local: '0123456789',
     );
 
-    final Relationship relationship1 =
+    const Relationship relationship1 =
         Relationship(label: 'Friend1', name: 'Name1');
-    final Relationship relationship2 =
+    const Relationship relationship2 =
         Relationship(label: 'Friend2', name: 'Name2');
 
-    final Website website = Website(label: 'Personal', url: 'url1.com');
+    const Website website = Website(label: 'Personal', url: 'url1.com');
 
     expect(
       Contact.fromMap(map),
@@ -193,7 +196,7 @@ void main() {
   });
 
   test('toMap()', () {
-    final Address address = Address(
+    const Address address = Address(
       city: 'City',
       countryRegion: 'CountryRegion',
       label: 'Label',
@@ -205,24 +208,24 @@ void main() {
 
     final DateTime birthday = DateTime(2020, 2, 27, 13, 27, 0);
 
-    final Chat chat = Chat(chat: 'Chat', label: 'Label');
+    const Chat chat = Chat(chat: 'Chat', label: 'Label');
 
-    final CustomField customField =
+    const CustomField customField =
         CustomField(content: 'Content', label: 'Label');
 
-    final Email email1 = Email(address: 'email1@email.com', label: 'Personal');
-    final Email email2 = Email(address: 'email2@email.com', label: 'Personal');
+    const Email email1 = Email(address: 'email1@email.com', label: 'Personal');
+    const Email email2 = Email(address: 'email2@email.com', label: 'Personal');
 
     final ContactEvent event = ContactEvent(
         date: DateTime(2020, 2, 27, 13, 27, 0), title: 'First event');
 
-    final InternetCall internetCall =
+    const InternetCall internetCall =
         InternetCall(internetCall: 'Internet call', label: 'Label');
 
-    final Job job = Job(
+    const Job job = Job(
         company: 'Company', department: 'Department', jobTitle: 'Job title');
 
-    final Name name = Name(
+    const Name name = Name(
       fileAs: 'File as',
       firstName: 'First name',
       lastName: 'Last name',
@@ -235,23 +238,23 @@ void main() {
       suffix: 'Suffix',
     );
 
-    final Phone phone1 = Phone(
+    const Phone phone1 = Phone(
       countryCode: '39',
       label: 'Personal',
       local: '0123456789',
     );
-    final Phone phone2 = Phone(
+    const Phone phone2 = Phone(
       countryCode: '1',
       label: 'Personal',
       local: '0123456789',
     );
 
-    final Relationship relationship1 =
+    const Relationship relationship1 =
         Relationship(label: 'Friend1', name: 'Name1');
-    final Relationship relationship2 =
+    const Relationship relationship2 =
         Relationship(label: 'Friend2', name: 'Name2');
 
-    final Website website = Website(label: 'Personal', url: 'url1.com');
+    const Website website = Website(label: 'Personal', url: 'url1.com');
 
     final Contact contact = Contact(
       addresses: [address],
@@ -368,7 +371,7 @@ void main() {
   });
 
   test('compareTo()', () {
-    Address address = Address(
+    const Address address = Address(
       city: 'City',
       countryRegion: 'CountryRegion',
       label: 'Label',
@@ -378,25 +381,26 @@ void main() {
       street: 'Street',
     );
 
-    DateTime birthday = DateTime(2020, 2, 27, 13, 27, 0);
+    final DateTime birthday = DateTime(2020, 2, 27, 13, 27, 0);
 
-    Chat chat = Chat(chat: 'Chat', label: 'Label');
+    const Chat chat = Chat(chat: 'Chat', label: 'Label');
 
-    CustomField customField = CustomField(content: 'Content', label: 'Label');
+    const CustomField customField =
+        CustomField(content: 'Content', label: 'Label');
 
-    Email email1 = Email(address: 'email1@email.com', label: 'Personal');
-    Email email2 = Email(address: 'email2@email.com', label: 'Personal');
+    const Email email1 = Email(address: 'email1@email.com', label: 'Personal');
+    const Email email2 = Email(address: 'email2@email.com', label: 'Personal');
 
-    ContactEvent event = ContactEvent(
+    final ContactEvent event = ContactEvent(
         date: DateTime(2020, 2, 27, 13, 27, 0), title: 'First event');
 
-    InternetCall internetCall =
+    const InternetCall internetCall =
         InternetCall(internetCall: 'Internet call', label: 'Label');
 
-    Job job = Job(
+    const Job job = Job(
         company: 'Company', department: 'Department', jobTitle: 'Job title');
 
-    Name name = Name(
+    const Name name = Name(
       fileAs: 'File as',
       firstName: 'First name',
       lastName: 'Last name',
@@ -408,7 +412,7 @@ void main() {
       prefix: 'Prefix',
       suffix: 'Suffix',
     );
-    Name name2 = Name(
+    const Name name2 = Name(
       fileAs: 'File as',
       firstName: 'First name2',
       lastName: 'Last name2',
@@ -421,23 +425,25 @@ void main() {
       suffix: 'Suffix',
     );
 
-    Phone phone1 = Phone(
+    const Phone phone1 = Phone(
       countryCode: '39',
       label: 'Personal',
       local: '0123456789',
     );
-    Phone phone2 = Phone(
+    const Phone phone2 = Phone(
       countryCode: '1',
       label: 'Personal',
       local: '0123456789',
     );
 
-    Relationship relationship1 = Relationship(label: 'Friend1', name: 'Name1');
-    Relationship relationship2 = Relationship(label: 'Friend2', name: 'Name2');
+    const Relationship relationship1 =
+        Relationship(label: 'Friend1', name: 'Name1');
+    const Relationship relationship2 =
+        Relationship(label: 'Friend2', name: 'Name2');
 
-    Website website = Website(label: 'Personal', url: 'url1.com');
+    const Website website = Website(label: 'Personal', url: 'url1.com');
 
-    Contact contact1 = Contact(
+    final Contact contact1 = Contact(
       addresses: [address],
       birthday: birthday,
       chats: [chat],
@@ -452,7 +458,7 @@ void main() {
       relationships: [relationship1, relationship2],
       websites: [website],
     );
-    Contact contact2 = Contact(
+    final Contact contact2 = Contact(
       addresses: [address],
       birthday: birthday,
       chats: [chat],

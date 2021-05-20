@@ -3,12 +3,12 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('Job.fromMap()', () {
-    Map<String, dynamic> map = {
+    final Map<String, dynamic> map = <String, dynamic>{
       'company': 'Company',
       'department': 'Department',
       'jobTitle': 'Job title',
     };
-    Map<String, dynamic> map2 = {
+    final Map<String, dynamic> map2 = <String, dynamic>{
       'company': 'Company',
       'department': '',
       'jobTitle': '',
@@ -16,18 +16,29 @@ void main() {
 
     expect(
       Job.fromMap(map),
-      Job(company: 'Company', department: 'Department', jobTitle: 'Job title'),
+      const Job(
+        company: 'Company',
+        department: 'Department',
+        jobTitle: 'Job title',
+      ),
     );
     expect(
       Job.fromMap(map2),
-      Job(company: 'Company', department: '', jobTitle: ''),
+      const Job(
+        company: 'Company',
+        department: '',
+        jobTitle: '',
+      ),
     );
   });
 
   test('toMap()', () {
-    Job job = Job(
-        company: 'Company', department: 'Department', jobTitle: 'Job title');
-    Job job2 = Job(company: 'Company');
+    const Job job = Job(
+      company: 'Company',
+      department: 'Department',
+      jobTitle: 'Job title',
+    );
+    const Job job2 = Job(company: 'Company');
 
     expect(
       job.toMap(),
@@ -48,9 +59,12 @@ void main() {
   });
 
   test('compareTo()', () {
-    Job job1 = Job(
-        company: 'Company', department: 'Department', jobTitle: 'Job title');
-    Job job2 = Job(company: 'Company');
+    const Job job1 = Job(
+      company: 'Company',
+      department: 'Department',
+      jobTitle: 'Job title',
+    );
+    const Job job2 = Job(company: 'Company');
 
     expect(job1.compareTo(job2), 1);
     expect(job1.compareTo(job1), 0);

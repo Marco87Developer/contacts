@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('Address.fromMap()', () {
-    final Map<String, dynamic> map = {
+    final Map<String, dynamic> map = <String, dynamic>{
       'city': 'City',
       'countryRegion': 'CountryRegion',
       'label': 'Label',
@@ -12,7 +12,7 @@ void main() {
       'province': 'Province',
       'street': 'Street',
     };
-    final Map<String, dynamic> mapWithEmptyPostOfficeBox = {
+    final Map<String, dynamic> mapWithEmptyPostOfficeBox = <String, dynamic>{
       'city': 'City',
       'countryRegion': 'CountryRegion',
       'label': 'Label',
@@ -24,7 +24,7 @@ void main() {
 
     expect(
       Address.fromMap(map),
-      Address(
+      const Address(
         city: 'City',
         countryRegion: 'CountryRegion',
         label: 'Label',
@@ -36,12 +36,11 @@ void main() {
     );
     expect(
       Address.fromMap(mapWithEmptyPostOfficeBox),
-      Address(
+      const Address(
         city: 'City',
         countryRegion: 'CountryRegion',
         label: 'Label',
         postalCode: 'PostalCode',
-        postOfficeBox: '',
         province: 'Province',
         street: 'Street',
       ),
@@ -49,7 +48,7 @@ void main() {
   });
 
   test('toMap()', () {
-    final Address address = Address(
+    const Address address = Address(
       city: 'City',
       countryRegion: 'CountryRegion',
       label: 'Label',
@@ -74,7 +73,7 @@ void main() {
   });
 
   test('compareTo()', () {
-    final Address address1 = Address(
+    const Address address1 = Address(
       city: 'City1',
       countryRegion: 'CountryRegion1',
       label: 'Label1',
@@ -83,7 +82,7 @@ void main() {
       province: 'Province1',
       street: 'Street1',
     );
-    final Address address2 = Address(
+    const Address address2 = Address(
       city: 'City2',
       countryRegion: 'CountryRegion2',
       label: 'Label2',
@@ -92,7 +91,7 @@ void main() {
       province: 'Province2',
       street: 'Street2',
     );
-    final Address address3 = Address(
+    const Address address3 = Address(
       city: 'City1',
       countryRegion: 'CountryRegion1',
       label: 'Label1',
@@ -101,7 +100,7 @@ void main() {
       province: 'Province1',
       street: 'Street1',
     );
-    final Address address4 = Address(
+    const Address address4 = Address(
       city: 'City1',
       countryRegion: 'CountryRegion4',
       label: 'Label1',

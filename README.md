@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/pub-v1.0.0-blue)
+![Pub Version](https://img.shields.io/pub/v/contacts)
 
 # Contacts
 

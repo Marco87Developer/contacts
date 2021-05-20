@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('Name.fromMap()', () {
-    Map<String, dynamic> map = {
+    final Map<String, dynamic> map = <String, dynamic>{
       'fileAs': 'File as',
       'firstName': 'First name',
       'lastName': 'Last name',
@@ -18,7 +18,7 @@ void main() {
 
     expect(
       Name.fromMap(map),
-      Name(
+      const Name(
         fileAs: 'File as',
         firstName: 'First name',
         lastName: 'Last name',
@@ -34,7 +34,7 @@ void main() {
   });
 
   test('toMap()', () {
-    Name name = Name(
+    const Name name = Name(
       fileAs: 'File as',
       firstName: 'First name',
       lastName: 'Last name',
@@ -47,7 +47,7 @@ void main() {
       suffix: 'Suffix',
     );
 
-    Name name2 = Name(
+    const Name name2 = Name(
       firstName: 'First name',
       lastName: 'Last name',
     );
@@ -85,7 +85,7 @@ void main() {
   });
 
   test('compareTo()', () {
-    Name name1 = Name(
+    const Name name1 = Name(
       fileAs: 'File as',
       firstName: 'First name',
       lastName: 'Last name',
@@ -97,7 +97,7 @@ void main() {
       prefix: 'Prefix',
       suffix: 'Suffix',
     );
-    Name name2 = Name(
+    const Name name2 = Name(
       firstName: 'First name',
       lastName: 'Last name',
     );

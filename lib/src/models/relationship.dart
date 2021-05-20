@@ -6,7 +6,7 @@ const String _nameKey = 'name';
 /// This class models a reference to a personal relationship.
 ///
 @immutable
-class Relationship implements Comparable {
+class Relationship implements Comparable<Relationship> {
   /// A reference to a personal relationship.
   ///
   /// It **requires** these fields: `String` [label] and `String` [name].
@@ -22,8 +22,8 @@ class Relationship implements Comparable {
   /// This can be useful for retrieving the instance in a database.
   ///
   Relationship.fromMap(Map<String, dynamic> map)
-      : label = map[_labelKey],
-        name = map[_nameKey];
+      : label = '${map[_labelKey]}',
+        name = '${map[_nameKey]}';
 
   /// The relationship label. It is useful for distinguishing different
   /// relationships that belong to the same person.
@@ -36,7 +36,7 @@ class Relationship implements Comparable {
   ///
   /// This can be useful for saving the instance in a database.
   ///
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toMap() => <String, dynamic>{
         _labelKey: label,
         _nameKey: name,
       };

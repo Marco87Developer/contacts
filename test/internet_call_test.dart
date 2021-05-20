@@ -3,16 +3,19 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('InternetCall.fromMap()', () {
-    Map<String, dynamic> map = {'internetCall': 'Name', 'label': 'Label'};
+    final Map<String, dynamic> map = <String, dynamic>{
+      'internetCall': 'Name',
+      'label': 'Label',
+    };
 
     expect(
       InternetCall.fromMap(map),
-      InternetCall(internetCall: 'Name', label: 'Label'),
+      const InternetCall(internetCall: 'Name', label: 'Label'),
     );
   });
 
   test('toMap()', () {
-    InternetCall internetCall =
+    const InternetCall internetCall =
         InternetCall(internetCall: 'Name', label: 'Label');
 
     expect(
@@ -22,9 +25,9 @@ void main() {
   });
 
   test('compareTo()', () {
-    InternetCall internetCall1 =
+    const InternetCall internetCall1 =
         InternetCall(internetCall: 'Name1', label: 'Label1');
-    InternetCall internetCall2 =
+    const InternetCall internetCall2 =
         InternetCall(internetCall: 'Name2', label: 'Label2');
 
     expect(internetCall1.compareTo(internetCall2), -1);

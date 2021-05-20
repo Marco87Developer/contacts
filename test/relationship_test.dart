@@ -3,19 +3,20 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('Relationship.fromMap()', () {
-    Map<String, dynamic> map = {
+    final Map<String, dynamic> map = <String, dynamic>{
       'label': 'Friend',
       'name': 'Name',
     };
 
     expect(
       Relationship.fromMap(map),
-      Relationship(label: 'Friend', name: 'Name'),
+      const Relationship(label: 'Friend', name: 'Name'),
     );
   });
 
   test('toMap()', () {
-    Relationship relationship = Relationship(label: 'Friend', name: 'Name');
+    const Relationship relationship =
+        Relationship(label: 'Friend', name: 'Name');
 
     expect(
       relationship.toMap(),
@@ -24,9 +25,12 @@ void main() {
   });
 
   test('compareTo()', () {
-    Relationship relationship1 = Relationship(label: 'Friend', name: 'Name1');
-    Relationship relationship2 = Relationship(label: 'Friend', name: 'Name2');
-    Relationship relationship3 = Relationship(label: 'Friend3', name: 'Name1');
+    const Relationship relationship1 =
+        Relationship(label: 'Friend', name: 'Name1');
+    const Relationship relationship2 =
+        Relationship(label: 'Friend', name: 'Name2');
+    const Relationship relationship3 =
+        Relationship(label: 'Friend3', name: 'Name1');
 
     expect(relationship1.compareTo(relationship2), -1);
     expect(relationship1.compareTo(relationship1), 0);

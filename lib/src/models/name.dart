@@ -14,7 +14,7 @@ const String _suffixKey = 'suffix';
 /// This class models a reference to a person’s name.
 ///
 @immutable
-class Name implements Comparable {
+class Name implements Comparable<Name> {
   /// A reference to a person’s name.
   ///
   /// It **requires** these fields: `String` [firstName] and
@@ -42,16 +42,16 @@ class Name implements Comparable {
   /// This can be useful for retrieving the instance in a database.
   ///
   Name.fromMap(Map<String, dynamic> map)
-      : fileAs = map[_fileAsKey],
-        firstName = map[_firstNameKey],
-        lastName = map[_lastNameKey],
-        middleName = map[_middleNameKey],
-        nickname = map[_nicknameKey],
-        phoneticFirst = map[_phoneticFirstKey],
-        phoneticLast = map[_phoneticLastKey],
-        phoneticMiddle = map[_phoneticMiddleKey],
-        prefix = map[_prefixKey],
-        suffix = map[_suffixKey];
+      : fileAs = '${map[_fileAsKey]}',
+        firstName = '${map[_firstNameKey]}',
+        lastName = '${map[_lastNameKey]}',
+        middleName = '${map[_middleNameKey]}',
+        nickname = '${map[_nicknameKey]}',
+        phoneticFirst = '${map[_phoneticFirstKey]}',
+        phoneticLast = '${map[_phoneticLastKey]}',
+        phoneticMiddle = '${map[_phoneticMiddleKey]}',
+        prefix = '${map[_prefixKey]}',
+        suffix = '${map[_suffixKey]}';
 
   /// File as.
   final String fileAs;
@@ -87,7 +87,7 @@ class Name implements Comparable {
   ///
   /// This can be useful for saving the instance in a database.
   ///
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toMap() => <String, dynamic>{
         _fileAsKey: fileAs,
         _firstNameKey: firstName,
         _lastNameKey: lastName,

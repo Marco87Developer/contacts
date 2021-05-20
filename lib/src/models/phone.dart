@@ -8,7 +8,7 @@ const String _localKey = 'local';
 /// This class models a reference to a phone’s number.
 ///
 @immutable
-class Phone implements Comparable {
+class Phone implements Comparable<Phone> {
   /// A reference to a phone’s number.
   ///
   /// It **requires** these fields: `String` [countryCode], `String` [label] and
@@ -25,9 +25,9 @@ class Phone implements Comparable {
   /// This can be useful for retrieving the instance in a database.
   ///
   Phone.fromMap(Map<String, dynamic> map)
-      : countryCode = map[_countryCodeKey],
-        label = map[_labelKey],
-        local = map[_localKey];
+      : countryCode = '${map[_countryCodeKey]}',
+        label = '${map[_labelKey]}',
+        local = '${map[_localKey]}';
 
   /// The country code. For example, for USA it will be `'1'` and for Italy it
   /// will be `'39'`.
@@ -62,7 +62,7 @@ class Phone implements Comparable {
   }) {
     final Uri uri = Uri(
       path: number,
-      queryParameters: {
+      queryParameters: <String, dynamic>{
         'body': body,
       },
       scheme: 'sms',
@@ -75,7 +75,7 @@ class Phone implements Comparable {
   ///
   /// This can be useful for saving the instance in a database.
   ///
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toMap() => <String, dynamic>{
         _countryCodeKey: countryCode,
         _labelKey: label,
         _localKey: local,

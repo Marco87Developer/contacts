@@ -1,3 +1,23 @@
+# 1.1.0
+
+<sup><sub>Release date: 2021-05-20.</sub></sup>
+
+* Removed [`pedantic`](https://pub.dev/packages/pedantic) developer dependency.
+* This now uses the newer [`lints`](https://pub.dev/packages/lints) developer dependency.
+* Minimum Dart SDK was updated to `2.13.0` version and Flutter to `2.0.0` version.
+
+# 1.0.2
+
+<sup><sub>Release date: 2021-05-20.</sub></sup>
+
+* Minor fixes.
+
+# 1.0.1
+
+<sup><sub>Release date: 2021-05-18.</sub></sup>
+
+* Minimum Dart SDK was set to Dart 2.13.
+
 # 1.0.0
 
 <sup><sub>Release date: 2021-02-23.</sub></sup>

@@ -6,7 +6,7 @@ const String _titleKey = 'title';
 /// This class models a reference to a contact’s event.
 ///
 @immutable
-class ContactEvent implements Comparable {
+class ContactEvent implements Comparable<ContactEvent> {
   /// A reference to a contact’s event.
   ///
   /// It **requires** these fields: `DateTime` [date] and `String` [title].
@@ -23,8 +23,8 @@ class ContactEvent implements Comparable {
   /// This can be useful for retrieving the instance in a database.
   ///
   ContactEvent.fromMap(Map<String, dynamic> map)
-      : date = DateTime.parse(map[_dateKey]),
-        title = map[_titleKey];
+      : date = DateTime.parse('${map[_dateKey]}'),
+        title = '${map[_titleKey]}';
 
   /// The date of this event.
   final DateTime date;
@@ -37,7 +37,7 @@ class ContactEvent implements Comparable {
   ///
   /// This can be useful for saving the instance in a database.
   ///
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toMap() => <String, dynamic>{
         _dateKey: date.toIso8601String(),
         _titleKey: title,
       };

@@ -29,7 +29,7 @@ const String _websitesKey = 'websites';
 /// This class models a reference to an address.
 ///
 @immutable
-class Contact implements Comparable {
+class Contact implements Comparable<Contact> {
   /// A reference to an address.
   ///
   /// It **requires** these fields: `Name` [name] and `List<Phone>` [phones].
@@ -67,7 +67,7 @@ class Contact implements Comparable {
             Address.fromMap(addressMap),
         ],
         birthday = map[_birthdayKey] != null
-            ? DateTime.parse(map[_birthdayKey])
+            ? DateTime.parse('${map[_birthdayKey]}')
             : null,
         chats = [
           for (Map<String, dynamic> chatMap in map[_chatsKey])
@@ -93,8 +93,8 @@ class Contact implements Comparable {
           for (Map<String, dynamic> jobMap in map[_jobsKey])
             Job.fromMap(jobMap),
         ],
-        name = Name.fromMap(map[_nameKey]),
-        notes = map[_notesKey],
+        name = Name.fromMap(map[_nameKey] as Map<String, dynamic>),
+        notes = '${map[_notesKey]}',
         phones = [
           for (Map<String, dynamic> phoneMap in map[_phonesKey])
             Phone.fromMap(phoneMap),
@@ -182,7 +182,7 @@ class Contact implements Comparable {
   ///
   /// This can be useful for saving the instance in a database.
   ///
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toMap() => <String, dynamic>{
         _addressesKey: [
           for (Address address in addresses) address.toMap(),
         ],

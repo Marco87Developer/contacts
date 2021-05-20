@@ -7,7 +7,7 @@ const _jobTitleKey = 'jobTitle';
 /// This class models a reference to a job.
 ///
 @immutable
-class Job implements Comparable {
+class Job implements Comparable<Job> {
   /// A reference to a job.
   ///
   /// It **requires** this field: `String` [company].
@@ -26,9 +26,9 @@ class Job implements Comparable {
   /// This can be useful for retrieving the instance in a database.
   ///
   Job.fromMap(Map<String, dynamic> map)
-      : company = map[_companyKey],
-        department = map[_departmentKey],
-        jobTitle = map[_jobTitleKey];
+      : company = '${map[_companyKey]}',
+        department = '${map[_departmentKey]}',
+        jobTitle = '${map[_jobTitleKey]}';
 
   /// The company where or for which this job takes place.
   final String company;
@@ -43,7 +43,7 @@ class Job implements Comparable {
   ///
   /// This can be useful for saving the instance in a database.
   ///
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toMap() => <String, dynamic>{
         _companyKey: company,
         _departmentKey: department,
         _jobTitleKey: jobTitle,

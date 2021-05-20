@@ -3,19 +3,19 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('Website.fromMap()', () {
-    Map<String, dynamic> map = {
+    final Map<String, dynamic> map = <String, dynamic>{
       'label': 'Label',
       'url': 'url.com',
     };
 
     expect(
       Website.fromMap(map),
-      Website(label: 'Label', url: 'url.com'),
+      const Website(label: 'Label', url: 'url.com'),
     );
   });
 
   test('toMap()', () {
-    Website website = Website(label: 'Label', url: 'url.com');
+    const Website website = Website(label: 'Label', url: 'url.com');
 
     expect(
       website.toMap(),
@@ -24,9 +24,9 @@ void main() {
   });
 
   test('compareTo()', () {
-    Website website1 = Website(label: 'Label1', url: 'url1.com');
-    Website website2 = Website(label: 'Label2', url: 'url2.com');
-    Website website3 = Website(label: 'Label1', url: 'url2.com');
+    const Website website1 = Website(label: 'Label1', url: 'url1.com');
+    const Website website2 = Website(label: 'Label2', url: 'url2.com');
+    const Website website3 = Website(label: 'Label1', url: 'url2.com');
 
     expect(website1.compareTo(website2), -1);
     expect(website1.compareTo(website1), 0);

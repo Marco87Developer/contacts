@@ -6,7 +6,7 @@ const String _labelKey = 'label';
 /// This class models a reference to an address.
 ///
 @immutable
-class Chat implements Comparable {
+class Chat implements Comparable<Chat> {
   /// A reference to an address.
   ///
   /// It **requires** these fields: `String` [label] and `String` [chat].
@@ -21,8 +21,8 @@ class Chat implements Comparable {
   /// This can be useful for retrieving the instance in a database.
   ///
   Chat.fromMap(Map<String, dynamic> map)
-      : chat = map[_chatKey],
-        label = map[_labelKey];
+      : chat = '${map[_chatKey]}',
+        label = '${map[_labelKey]}';
 
   /// The reference name to the chat.
   final String chat;
@@ -35,7 +35,7 @@ class Chat implements Comparable {
   ///
   /// This can be useful for saving the instance in a database.
   ///
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toMap() => <String, dynamic>{
         _chatKey: chat,
         _labelKey: label,
       };

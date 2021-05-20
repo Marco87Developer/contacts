@@ -6,7 +6,7 @@ const String _labelKey = 'label';
 /// This class models a reference to an internet call reference.
 ///
 @immutable
-class InternetCall implements Comparable {
+class InternetCall implements Comparable<InternetCall> {
   /// A reference to an internet call reference.
   ///
   /// It **requires** these fields: `String` [internetCall] and
@@ -23,8 +23,8 @@ class InternetCall implements Comparable {
   /// This can be useful for retrieving the instance in a database.
   ///
   InternetCall.fromMap(Map<String, dynamic> map)
-      : internetCall = map[_internetCallKey],
-        label = map[_labelKey];
+      : internetCall = '${map[_internetCallKey]}',
+        label = '${map[_labelKey]}';
 
   /// The reference name for this Internet call.
   final String internetCall;
@@ -37,7 +37,7 @@ class InternetCall implements Comparable {
   ///
   /// This can be useful for saving the instance in a database.
   ///
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toMap() => <String, dynamic>{
         _internetCallKey: internetCall,
         _labelKey: label,
       };

@@ -7,7 +7,7 @@ const String _labelKey = 'label';
 /// This class models a reference to an email address.
 ///
 @immutable
-class Email implements Comparable {
+class Email implements Comparable<Email> {
   /// A reference to an email address.
   ///
   /// It **requires** these fields: `String` [address], `String` [label].
@@ -22,8 +22,8 @@ class Email implements Comparable {
   /// This can be useful for retrieving the instance in a database.
   ///
   Email.fromMap(Map<String, dynamic> map)
-      : address = map[_addressKey],
-        label = map[_labelKey];
+      : address = '${map[_addressKey]}',
+        label = '${map[_labelKey]}';
 
   /// The email address.
   final String address;
@@ -41,7 +41,7 @@ class Email implements Comparable {
   }) async {
     final Uri uri = Uri(
       path: address,
-      queryParameters: {
+      queryParameters: <String, dynamic>{
         'subject': subject,
         'body': body,
       },
@@ -55,7 +55,7 @@ class Email implements Comparable {
   ///
   /// This can be useful for saving the instance in a database.
   ///
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toMap() => <String, dynamic>{
         _addressKey: address,
         _labelKey: label,
       };

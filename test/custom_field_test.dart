@@ -3,14 +3,14 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('CustomField.fromMap()', () {
-    Map<String, dynamic> map = {
+    final Map<String, dynamic> map = <String, dynamic>{
       'content': 'A simple content.',
       'label': 'Label',
     };
 
     expect(
       CustomField.fromMap(map),
-      CustomField(
+      const CustomField(
         content: 'A simple content.',
         label: 'Label',
       ),
@@ -18,7 +18,7 @@ void main() {
   });
 
   test('toMap()', () {
-    CustomField customField = CustomField(
+    const CustomField customField = CustomField(
       content: 'A simple content.',
       label: 'Label',
     );
@@ -30,11 +30,11 @@ void main() {
   });
 
   test('compareTo()', () {
-    CustomField customField1 = CustomField(
+    const CustomField customField1 = CustomField(
       content: 'Content 1.',
       label: 'Label1',
     );
-    CustomField customField2 = CustomField(
+    const CustomField customField2 = CustomField(
       content: 'Content 2.',
       label: 'Label2',
     );

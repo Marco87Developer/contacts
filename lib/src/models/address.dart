@@ -11,7 +11,7 @@ const String _labelKey = 'label';
 /// This class models a reference to an address.
 ///
 @immutable
-class Address implements Comparable {
+class Address implements Comparable<Address> {
   /// A reference to an address.
   ///
   /// It **requires** these fields: `String` [city], `String` [countryRegion],
@@ -35,13 +35,13 @@ class Address implements Comparable {
   /// This can be useful for retrieving the instance in a database.
   ///
   Address.fromMap(Map<String, dynamic> map)
-      : city = map[_cityKey],
-        countryRegion = map[_countryRegionKey],
-        label = map[_labelKey],
-        postalCode = map[_postalCodeKey],
-        postOfficeBox = map[_postOfficeBoxKey],
-        province = map[_provinceKey],
-        street = map[_streetKey];
+      : city = '${map[_cityKey]}',
+        countryRegion = '${map[_countryRegionKey]}',
+        label = '${map[_labelKey]}',
+        postalCode = '${map[_postalCodeKey]}',
+        postOfficeBox = '${map[_postOfficeBoxKey]}',
+        province = '${map[_provinceKey]}',
+        street = '${map[_streetKey]}';
 
   /// The city. In some regions it is given by the municipality.
   final String city;
@@ -70,7 +70,7 @@ class Address implements Comparable {
   ///
   /// This can be useful for saving the instance in a database.
   ///
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toMap() => <String, dynamic>{
         _cityKey: city,
         _countryRegionKey: countryRegion,
         _labelKey: label,
