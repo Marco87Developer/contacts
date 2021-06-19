@@ -1,4 +1,5 @@
-![Pub Version](https://img.shields.io/pub/v/contacts)
+![Pub Version](https://img.shields.io/pub/v/contacts?include_prereleases)
+![GitHub Top Language](https://img.shields.io/github/languages/top/Marco87Developer/contacts)
 
 # Contacts
 
