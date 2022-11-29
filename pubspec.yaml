@@ -1,0 +1,15 @@
+name: contacts
+description: A set of classes useful for managing contacts.
+version: 2.0.0
+repository: https://github.com/Marco87Developer/contacts
+# homepage: https://marco87.dev
+
+environment:
+  sdk: ">=2.18.5 <3.0.0"
+
+# dependencies:
+#   path: ^1.8.0
+
+dev_dependencies:
+  lints: ^2.0.0
+  test: ^1.16.0
