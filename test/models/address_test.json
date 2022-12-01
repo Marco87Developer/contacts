@@ -1,0 +1,10 @@
+{
+    "city": "city",
+    "countryRegion": "Italy",
+    "label": "label",
+    "poBox": "pobox",
+    "postalCode": "postalcode",
+    "provinceDepartment": "provincedepartment",
+    "streetAddress": "streetaddress",
+    "streetAddressLine2": "streetaddressline2"
+}

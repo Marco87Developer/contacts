@@ -7,42 +7,52 @@ const String _websiteKey = 'website';
 
 /// A website.
 ///
+/// {@template contacts.website.oncecreatednopropertiesmaybechanged}
+/// Once created, no properties of an [Website] object may be changed.
+/// {@endtemplate}
+///
 @immutable
 class Website {
-  /// A website.
+  /// Constructs a [Website] instance.
+  ///
+  /// {@macro contacts.website.oncecreatednopropertiesmaybechanged}
   ///
   const Website({
-    required this.website,
     this.label,
+    required this.website,
   });
 
-  /// Constructs an [Website] instance **from a [json] string**.
+  /// Constructs a [Website] instance **from a [json] string**.
+  ///
+  /// {@macro contacts.website.oncecreatednopropertiesmaybechanged}
   ///
   factory Website.fromJson(final String json) =>
       Website.fromMap(jsonDecode(json) as Map<String, dynamic>);
 
-  /// Constructs an [Website] instance **from a [map]**.
+  /// Constructs a [Website] instance **from a [map]**.
+  ///
+  /// {@macro contacts.website.oncecreatednopropertiesmaybechanged}
   ///
   Website.fromMap(final Map<String, dynamic> map)
-      : website = '${map[_websiteKey]}',
-        label = map[_labelKey] == null ? null : '${map[_labelKey]}';
-
-  /// The URL of the website.
-  final String website;
+      : label = map[_labelKey] == null ? null : '${map[_labelKey]}',
+        website = '${map[_websiteKey]}';
 
   /// The label.
   final String? label;
+
+  /// The URL of the website.
+  final String website;
 
   /// Creates a **copy** of this [Website] instance but with the **given fields
   /// replaced** with the new values.
   ///
   Website copyWith({
-    final String? website,
     final String? label,
+    final String? website,
   }) =>
       Website(
-        website: website ?? this.website,
         label: label ?? this.label,
+        website: website ?? this.website,
       );
 
   /// Creates a **JSON string representing** this [Website] instance.
@@ -56,23 +66,23 @@ class Website {
   /// The resulting map can be parsed back using [Website.fromMap].
   ///
   Map<String, dynamic> toMap() => <String, dynamic>{
-        _websiteKey: website,
         _labelKey: label,
+        _websiteKey: website,
       };
 
   @override
-  int get hashCode => Object.hashAll(<Object?>[
-        website,
+  int get hashCode => Object.hashAll([
         label,
+        website,
       ]);
 
   @override
-  String toString() => 'Website(website: $website, label: $label)';
+  String toString() => 'Website(label: $label, website: $website)';
 
   @override
   bool operator ==(covariant final Website other) {
     if (identical(this, other)) return true;
 
-    return other.website == website && other.label == label;
+    return other.label == label && other.website == website;
   }
 }

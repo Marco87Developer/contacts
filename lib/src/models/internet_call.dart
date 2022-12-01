@@ -7,9 +7,15 @@ const String _labelKey = 'label';
 
 /// A internet call
 ///
+/// {@template contacts.internetcall.oncecreatednopropertiesmaybechanged}
+/// Once created, no properties of an [InternetCall] object may be changed.
+/// {@endtemplate}
+///
 @immutable
 class InternetCall {
-  /// A internet call
+  /// Constructs an [InternetCall] instance.
+  ///
+  /// {@macro contacts.internetcall.oncecreatednopropertiesmaybechanged}
   ///
   const InternetCall({
     required this.internetCall,
@@ -18,10 +24,14 @@ class InternetCall {
 
   /// Constructs an [InternetCall] instance **from a [json] string**.
   ///
+  /// {@macro contacts.internetcall.oncecreatednopropertiesmaybechanged}
+  ///
   factory InternetCall.fromJson(final String json) =>
       InternetCall.fromMap(jsonDecode(json) as Map<String, dynamic>);
 
   /// Constructs an [InternetCall] instance **from a [map]**.
+  ///
+  /// {@macro contacts.internetcall.oncecreatednopropertiesmaybechanged}
   ///
   InternetCall.fromMap(final Map<String, dynamic> map)
       : internetCall = '${map[_internetCallKey]}',
@@ -63,7 +73,7 @@ class InternetCall {
       };
 
   @override
-  int get hashCode => Object.hashAll(<Object?>[
+  int get hashCode => Object.hashAll([
         internetCall.hashCode,
         label.hashCode,
       ]);

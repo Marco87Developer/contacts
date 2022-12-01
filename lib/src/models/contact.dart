@@ -29,82 +29,52 @@ const String _websitesKey = 'websites';
 
 /// A contact.
 ///
+/// {@template contacts.contact.oncecreatednopropertiesmaybechanged}
+/// Once created, no properties of a [Contact] object may be changed.
+/// {@endtemplate}
+///
 @immutable
 class Contact {
-  /// A contact.
+  /// Constructs a [Contact] instance.
+  ///
+  /// {@macro contacts.contact.oncecreatednopropertiesmaybechanged}
   ///
   const Contact({
-    required this.name,
-    this.organization,
-    this.emails,
-    this.phones,
     this.addresses,
-    this.events,
-    this.websites,
-    this.relatedPeople,
     this.chats,
-    this.internetCalls,
     this.customFields,
+    this.emails,
+    this.events,
+    this.internetCalls,
+    required this.name,
     this.notes,
+    this.organization,
+    this.phones,
+    this.relatedPeople,
+    this.websites,
   });
 
   /// Constructs an [Contact] instance **from a [json] string**.
+  ///
+  /// {@macro contacts.contact.oncecreatednopropertiesmaybechanged}
   ///
   factory Contact.fromJson(final String json) =>
       Contact.fromMap(jsonDecode(json) as Map<String, dynamic>);
 
   /// Constructs an [Contact] instance **from a [map]**.
   ///
+  /// {@macro contacts.contact.oncecreatednopropertiesmaybechanged}
+  ///
   Contact.fromMap(final Map<String, dynamic> map)
-      : name = Name.fromMap(map[_nameKey] as Map<String, dynamic>),
-        organization = map[_organizationKey] == null
-            ? null
-            : Organization.fromMap(
-                map[_organizationKey] as Map<String, dynamic>,
-              ),
-        emails = map[_emailsKey] == null
-            ? null
-            : (map[_emailsKey] as List<dynamic>)
-                .map((final e) => Email.fromMap(e as Map<String, dynamic>))
-                .toList(),
-        phones = map[_phonesKey] == null
-            ? null
-            : (map[_phonesKey] as List<dynamic>)
-                .map((final p) => Phone.fromMap(p as Map<String, dynamic>))
-                .toList(),
-        addresses = map[_addressesKey] == null
+      : addresses = map[_addressesKey] == null
             ? null
             : (map[_addressesKey] as List<dynamic>)
                 .map((final a) => Address.fromMap(a as Map<String, dynamic>))
-                .toList(),
-        events = map[_eventsKey] == null
-            ? null
-            : (map[_eventsKey] as List<dynamic>)
-                .map((final e) => Event.fromMap(e as Map<String, dynamic>))
-                .toList(),
-        websites = map[_websitesKey] == null
-            ? null
-            : (map[_websitesKey] as List<dynamic>)
-                .map((final w) => Website.fromMap(w as Map<String, dynamic>))
-                .toList(),
-        relatedPeople = map[_relatedPeopleKey] == null
-            ? null
-            : (map[_relatedPeopleKey] as List<dynamic>)
-                .map(
-                  (final r) => RelatedPerson.fromMap(r as Map<String, dynamic>),
-                )
                 .toList(),
         chats = map[_chatsKey] == null
             ? null
             : (map[_chatsKey] as List<dynamic>)
                 .map((final c) => Chat.fromMap(c as Map<String, dynamic>))
-                .toList(),
-        internetCalls = map[_internetCallsKey] == null
-            ? null
-            : (map[_internetCallsKey] as List<dynamic>)
-                .map(
-                  (final i) => InternetCall.fromMap(i as Map<String, dynamic>),
-                )
                 .toList(),
         customFields = map[_customFieldsKey] == null
             ? null
@@ -113,74 +83,114 @@ class Contact {
                   (final c) => CustomField.fromMap(c as Map<String, dynamic>),
                 )
                 .toList(),
-        notes = map[_notesKey] == null ? null : '${map[_notesKey]}';
-
-  /// The full name.
-  final Name name;
-
-  /// The organization.
-  final Organization? organization;
-
-  /// Email addresses.
-  final List<Email>? emails;
-
-  /// Phone numbers.
-  final List<Phone>? phones;
+        emails = map[_emailsKey] == null
+            ? null
+            : (map[_emailsKey] as List<dynamic>)
+                .map((final e) => Email.fromMap(e as Map<String, dynamic>))
+                .toList(),
+        events = map[_eventsKey] == null
+            ? null
+            : (map[_eventsKey] as List<dynamic>)
+                .map((final e) => Event.fromMap(e as Map<String, dynamic>))
+                .toList(),
+        internetCalls = map[_internetCallsKey] == null
+            ? null
+            : (map[_internetCallsKey] as List<dynamic>)
+                .map(
+                  (final i) => InternetCall.fromMap(i as Map<String, dynamic>),
+                )
+                .toList(),
+        name = Name.fromMap(map[_nameKey] as Map<String, dynamic>),
+        notes = map[_notesKey] == null ? null : '${map[_notesKey]}',
+        organization = map[_organizationKey] == null
+            ? null
+            : Organization.fromMap(
+                map[_organizationKey] as Map<String, dynamic>,
+              ),
+        phones = map[_phonesKey] == null
+            ? null
+            : (map[_phonesKey] as List<dynamic>)
+                .map((final p) => Phone.fromMap(p as Map<String, dynamic>))
+                .toList(),
+        relatedPeople = map[_relatedPeopleKey] == null
+            ? null
+            : (map[_relatedPeopleKey] as List<dynamic>)
+                .map(
+                  (final r) => RelatedPerson.fromMap(r as Map<String, dynamic>),
+                )
+                .toList(),
+        websites = map[_websitesKey] == null
+            ? null
+            : (map[_websitesKey] as List<dynamic>)
+                .map((final w) => Website.fromMap(w as Map<String, dynamic>))
+                .toList();
 
   /// The addresses.
   final List<Address>? addresses;
 
-  /// Events.
-  final List<Event>? events;
-
-  /// The websites.
-  final List<Website>? websites;
-
-  /// Related people.
-  final List<RelatedPerson>? relatedPeople;
-
   /// The chats.
   final List<Chat>? chats;
-
-  /// Internet calls.
-  final List<InternetCall>? internetCalls;
 
   /// The custom fields.
   final List<CustomField>? customFields;
 
+  /// Email addresses.
+  final List<Email>? emails;
+
+  /// Events.
+  final List<Event>? events;
+
+  /// Internet calls.
+  final List<InternetCall>? internetCalls;
+
+  /// The full name.
+  final Name name;
+
   /// The notes.
   final String? notes;
+
+  /// The organization.
+  final Organization? organization;
+
+  /// Phone numbers.
+  final List<Phone>? phones;
+
+  /// Related people.
+  final List<RelatedPerson>? relatedPeople;
+
+  /// The websites.
+  final List<Website>? websites;
 
   /// Creates a **copy** of this [Contact] instance but with the **given fields
   /// replaced** with the new values.
   ///
   Contact copyWith({
-    final Name? name,
-    final Organization? organization,
-    final List<Email>? emails,
-    final List<Phone>? phones,
-    final List<Address>? address,
-    final List<Event>? event,
-    final List<Website>? website,
-    final List<RelatedPerson>? relatedPersons,
+    final List<Address>? addresses,
     final List<Chat>? chats,
-    final List<InternetCall>? internetCalls,
     final List<CustomField>? customFields,
+    final List<Email>? emails,
+    final List<Event>? events,
+    final List<InternetCall>? internetCalls,
+    final Name? name,
     final String? notes,
+    final Organization? organization,
+    final List<Phone>? phones,
+    final List<RelatedPerson>? relatedPeople,
+    final List<Website>? websites,
   }) =>
       Contact(
-        name: name ?? this.name,
-        organization: organization ?? this.organization,
-        emails: emails ?? this.emails,
-        phones: phones ?? this.phones,
-        addresses: address ?? addresses,
-        events: event ?? events,
-        websites: website ?? websites,
-        relatedPeople: relatedPersons ?? relatedPeople,
+        addresses: addresses ?? this.addresses,
         chats: chats ?? this.chats,
-        internetCalls: internetCalls ?? this.internetCalls,
         customFields: customFields ?? this.customFields,
+        emails: emails ?? this.emails,
+        events: events ?? this.events,
+        internetCalls: internetCalls ?? this.internetCalls,
+        name: name ?? this.name,
         notes: notes ?? this.notes,
+        organization: organization ?? this.organization,
+        phones: phones ?? this.phones,
+        relatedPeople: relatedPeople ?? this.relatedPeople,
+        websites: websites ?? this.websites,
       );
 
   /// Creates a **JSON string representing** this [Contact] instance.
@@ -194,61 +204,61 @@ class Contact {
   /// The resulting map can be parsed back using [Contact.fromMap].
   ///
   Map<String, dynamic> toMap() => <String, dynamic>{
-        _nameKey: name.toMap(),
-        _organizationKey: organization?.toMap(),
-        _emailsKey: emails?.map((final e) => e.toMap()).toList(),
-        _phonesKey: phones?.map((final p) => p.toMap()).toList(),
         _addressesKey: addresses?.map((final a) => a.toMap()).toList(),
-        _eventsKey: events?.map((final e) => e.toMap()).toList(),
-        _websitesKey: websites?.map((final w) => w.toMap()).toList(),
-        _relatedPeopleKey: relatedPeople?.map((final r) => r.toMap()).toList(),
         _chatsKey: chats?.map((final c) => c.toMap()).toList(),
-        _internetCallsKey: internetCalls?.map((final i) => i.toMap()).toList(),
         _customFieldsKey: customFields?.map((final c) => c.toMap()).toList(),
+        _emailsKey: emails?.map((final e) => e.toMap()).toList(),
+        _eventsKey: events?.map((final e) => e.toMap()).toList(),
+        _internetCallsKey: internetCalls?.map((final i) => i.toMap()).toList(),
+        _nameKey: name.toMap(),
         _notesKey: notes,
+        _organizationKey: organization?.toMap(),
+        _phonesKey: phones?.map((final p) => p.toMap()).toList(),
+        _relatedPeopleKey: relatedPeople?.map((final r) => r.toMap()).toList(),
+        _websitesKey: websites?.map((final w) => w.toMap()).toList(),
       };
 
   @override
   bool operator ==(covariant final Contact other) {
     if (identical(this, other)) return true;
 
-    return other.name == name &&
-        other.organization == organization &&
-        const DeepCollectionEquality().equals(other.emails, emails) &&
-        const DeepCollectionEquality().equals(other.phones, phones) &&
-        const DeepCollectionEquality().equals(other.addresses, addresses) &&
-        const DeepCollectionEquality().equals(other.events, events) &&
-        const DeepCollectionEquality().equals(other.websites, websites) &&
-        const DeepCollectionEquality()
-            .equals(other.relatedPeople, relatedPeople) &&
+    return const DeepCollectionEquality().equals(other.addresses, addresses) &&
         const DeepCollectionEquality().equals(other.chats, chats) &&
         const DeepCollectionEquality()
-            .equals(other.internetCalls, internetCalls) &&
-        const DeepCollectionEquality()
             .equals(other.customFields, customFields) &&
-        other.notes == notes;
+        const DeepCollectionEquality().equals(other.emails, emails) &&
+        const DeepCollectionEquality().equals(other.events, events) &&
+        const DeepCollectionEquality()
+            .equals(other.internetCalls, internetCalls) &&
+        other.name == name &&
+        other.notes == notes &&
+        other.organization == organization &&
+        const DeepCollectionEquality().equals(other.phones, phones) &&
+        const DeepCollectionEquality()
+            .equals(other.relatedPeople, relatedPeople) &&
+        const DeepCollectionEquality().equals(other.websites, websites);
   }
 
   @override
-  int get hashCode => Object.hashAll(<Object?>[
-        name,
-        organization,
-        emails,
-        phones,
+  int get hashCode => Object.hashAll([
         addresses,
-        events,
-        websites,
-        relatedPeople,
         chats,
-        internetCalls,
         customFields,
+        emails,
+        events,
+        internetCalls,
+        name,
         notes,
+        organization,
+        phones,
+        relatedPeople,
+        websites,
       ]);
 
   @override
-  String toString() => 'Contact(name: $name, organization: $organization,'
-      ' emails: $emails, phones: $phones, address: $addresses, event: $events,'
-      ' website: $websites, relatedPersons: $relatedPeople, chats: $chats,'
-      ' internetCalls: $internetCalls, customFields: $customFields, notes:'
-      ' $notes)';
+  String toString() => 'Contact(addresses: $addresses, chats: $chats,'
+      ' customFields: $customFields, emails: $emails, events: $events,'
+      ' internetCalls: $internetCalls, name: $name, notes: $notes,'
+      ' organization: $organization, phones: $phones, relatedPeople:'
+      ' $relatedPeople, websites: $websites)';
 }

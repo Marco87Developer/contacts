@@ -7,9 +7,15 @@ const String _labelKey = 'label';
 
 /// A custom field.
 ///
+/// {@template contacts.customfield.oncecreatednopropertiesmaybechanged}
+/// Once created, no properties of a [CustomField] object may be changed.
+/// {@endtemplate}
+///
 @immutable
 class CustomField {
-  /// A custom field.
+  /// Constructs a [CustomField] instance.
+  ///
+  /// {@macro contacts.customfield.oncecreatednopropertiesmaybechanged}
   ///
   const CustomField({
     required this.customField,
@@ -18,10 +24,14 @@ class CustomField {
 
   /// Constructs an [CustomField] instance **from a [json] string**.
   ///
+  /// {@macro contacts.customfield.oncecreatednopropertiesmaybechanged}
+  ///
   factory CustomField.fromJson(final String json) =>
       CustomField.fromMap(jsonDecode(json) as Map<String, dynamic>);
 
   /// Constructs an [CustomField] instance **from a [map]**.
+  ///
+  /// {@macro contacts.customfield.oncecreatednopropertiesmaybechanged}
   ///
   CustomField.fromMap(final Map<String, dynamic> map)
       : customField = '${map[_customFieldKey]}',
@@ -62,7 +72,7 @@ class CustomField {
       };
 
   @override
-  int get hashCode => Object.hashAll(<Object?>[
+  int get hashCode => Object.hashAll([
         customField,
         label,
       ]);

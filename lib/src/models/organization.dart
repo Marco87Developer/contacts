@@ -3,55 +3,65 @@ import 'dart:convert';
 import 'package:meta/meta.dart';
 
 const String _companyKey = 'company';
-const String _departmentKey = 'jobTitle';
-const String _jobTitleKey = 'department';
+const String _departmentKey = 'department';
+const String _jobTitleKey = 'jobTitle';
 
 /// The organization the contact belongs to.
 ///
+/// {@template contacts.organization.oncecreatednopropertiesmaybechanged}
+/// Once created, no properties of an [Organization] object may be changed.
+/// {@endtemplate}
+///
 @immutable
 class Organization {
-  /// The organization the contact belongs to.
+  /// Constructs an [Organization] instance
+  ///
+  /// {@macro contacts.organization.oncecreatednopropertiesmaybechanged}
   ///
   const Organization({
     this.company,
-    this.jobTitle,
     this.department,
+    this.jobTitle,
   });
 
   /// Constructs an [Organization] instance **from a [json] string**.
+  ///
+  /// {@macro contacts.organization.oncecreatednopropertiesmaybechanged}
   ///
   factory Organization.fromJson(final String json) =>
       Organization.fromMap(jsonDecode(json) as Map<String, dynamic>);
 
   /// Constructs an [Organization] instance **from a [map]**.
   ///
+  /// {@macro contacts.organization.oncecreatednopropertiesmaybechanged}
+  ///
   Organization.fromMap(final Map<String, dynamic> map)
       : company = map[_companyKey] == null ? null : '${map[_companyKey]}',
-        jobTitle = map[_jobTitleKey] == null ? null : '${map[_jobTitleKey]}',
         department =
-            map[_departmentKey] == null ? null : '${map[_departmentKey]}';
+            map[_departmentKey] == null ? null : '${map[_departmentKey]}',
+        jobTitle = map[_jobTitleKey] == null ? null : '${map[_jobTitleKey]}';
 
   /// The company.
   final String? company;
 
-  /// The job title.
-  final String? jobTitle;
-
   /// The department.
   final String? department;
+
+  /// The job title.
+  final String? jobTitle;
 
   /// Creates a **copy** of this [Organization] instance but with the **given
   /// fields replaced** with the new values.
   ///
   Organization copyWith({
     final String? company,
-    final String? jobTitle,
     final String? department,
+    final String? jobTitle,
   }) =>
       Organization(
         company: company ?? this.company,
-        jobTitle: jobTitle ?? this.jobTitle,
         department: department ?? this.department,
+        jobTitle: jobTitle ?? this.jobTitle,
       );
 
   /// Creates a **JSON string representing** this [Organization] instance.
@@ -68,27 +78,27 @@ class Organization {
   ///
   Map<String, dynamic> toMap() => <String, dynamic>{
         _companyKey: company,
-        _jobTitleKey: jobTitle,
         _departmentKey: department,
+        _jobTitleKey: jobTitle,
       };
 
   @override
-  String toString() => 'Organization(company: $company, jobTitle: $jobTitle,'
-      ' department: $department)';
+  int get hashCode => Object.hashAll([
+        company,
+        department,
+        jobTitle,
+      ]);
 
   @override
-  int get hashCode => Object.hashAll(<String?>[
-        company,
-        jobTitle,
-        department,
-      ]);
+  String toString() => 'Organization(company: $company, department:'
+      ' $department, jobTitle: $jobTitle)';
 
   @override
   bool operator ==(covariant final Organization other) {
     if (identical(this, other)) return true;
 
     return other.company == company &&
-        other.jobTitle == jobTitle &&
-        other.department == department;
+        other.department == department &&
+        other.jobTitle == jobTitle;
   }
 }

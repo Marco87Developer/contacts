@@ -7,9 +7,15 @@ const String _labelKey = 'label';
 
 /// A chat.
 ///
+/// {@template contacts.chat.oncecreatednopropertiesmaybechanged}
+/// Once created, no properties of a [Chat] object may be changed.
+/// {@endtemplate}
+///
 @immutable
 class Chat {
-  /// A chat.
+  /// Constructs a [Chat] instance.
+  ///
+  /// {@macro contacts.chat.oncecreatednopropertiesmaybechanged}
   ///
   const Chat({
     required this.chat,
@@ -18,10 +24,14 @@ class Chat {
 
   /// Constructs an [Chat] instance **from a [json] string**.
   ///
+  /// {@macro contacts.chat.oncecreatednopropertiesmaybechanged}
+  ///
   factory Chat.fromJson(final String json) =>
       Chat.fromMap(jsonDecode(json) as Map<String, dynamic>);
 
   /// Constructs an [Chat] instance **from a [map]**.
+  ///
+  /// {@macro contacts.chat.oncecreatednopropertiesmaybechanged}
   ///
   Chat.fromMap(final Map<String, dynamic> map)
       : chat = '${map[_chatKey]}',
@@ -62,7 +72,7 @@ class Chat {
       };
 
   @override
-  int get hashCode => Object.hashAll(<Object?>[
+  int get hashCode => Object.hashAll([
         chat,
         label,
       ]);

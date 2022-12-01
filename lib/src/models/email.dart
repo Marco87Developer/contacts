@@ -7,9 +7,15 @@ const String _labelKey = 'label';
 
 /// An email address.
 ///
+/// {@template contacts.email.oncecreatednopropertiesmaybechanged}
+/// Once created, no properties of an [Email] object may be changed.
+/// {@endtemplate}
+///
 @immutable
 class Email {
-  /// An email address.
+  /// Constructs an [Email] instance.
+  ///
+  /// {@macro contacts.email.oncecreatednopropertiesmaybechanged}
   ///
   const Email({
     required this.email,
@@ -18,10 +24,14 @@ class Email {
 
   /// Constructs an [Email] instance **from a [json] string**.
   ///
+  /// {@macro contacts.email.oncecreatednopropertiesmaybechanged}
+  ///
   factory Email.fromJson(final String json) =>
       Email.fromMap(jsonDecode(json) as Map<String, dynamic>);
 
   /// Constructs an [Email] instance **from a [map]**.
+  ///
+  /// {@macro contacts.email.oncecreatednopropertiesmaybechanged}
   ///
   Email.fromMap(final Map<String, dynamic> map)
       : email = '${map[_emailKey]}',
@@ -62,7 +72,7 @@ class Email {
       };
 
   @override
-  int get hashCode => Object.hashAll(<Object?>[
+  int get hashCode => Object.hashAll([
         email,
         label,
       ]);

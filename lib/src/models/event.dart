@@ -7,9 +7,15 @@ const String _labelKey = 'label';
 
 /// An event.
 ///
+/// {@template contacts.event.oncecreatednopropertiesmaybechanged}
+/// Once created, no properties of an [Event] object may be changed.
+/// {@endtemplate}
+///
 @immutable
 class Event {
-  /// An event.
+  /// Constructs an [Event] instance.
+  ///
+  /// {@macro contacts.event.oncecreatednopropertiesmaybechanged}
   ///
   const Event({
     required this.event,
@@ -18,10 +24,14 @@ class Event {
 
   /// Constructs an [Event] instance **from a [json] string**.
   ///
+  /// {@macro contacts.event.oncecreatednopropertiesmaybechanged}
+  ///
   factory Event.fromJson(final String json) =>
       Event.fromMap(jsonDecode(json) as Map<String, dynamic>);
 
   /// Constructs an [Event] instance **from a [map]**.
+  ///
+  /// {@macro contacts.event.oncecreatednopropertiesmaybechanged}
   ///
   Event.fromMap(final Map<String, dynamic> map)
       : event = DateTime.parse('${map[_eventKey]}'),
@@ -62,7 +72,7 @@ class Event {
       };
 
   @override
-  int get hashCode => Object.hashAll(<Object?>[
+  int get hashCode => Object.hashAll([
         event,
         label,
       ]);

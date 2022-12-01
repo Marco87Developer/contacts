@@ -27,19 +27,19 @@ linter:
     use_key_in_widget_constructors: true
     # Style Rules
     always_declare_return_types: true
-    unnecessary_library_directive: true
-    always_put_required_named_parameters_first: true
+    always_put_required_named_parameters_first: false
+    always_specify_types: false
     avoid_bool_literals_in_conditional_expressions: true
     avoid_catches_without_on_clauses: true
     avoid_catching_errors: true
     avoid_classes_with_only_static_members: true
     avoid_double_and_int_checks: true
+    avoid_equals_and_hash_code_on_mutable_classes: true
     avoid_escaping_inner_quotes: true
     avoid_field_initializers_in_const_classes: true
     avoid_implementing_value_types: true
     avoid_js_rounded_ints: true
     avoid_multiple_declarations_per_line: true
-    avoid_equals_and_hash_code_on_mutable_classes: true
     avoid_positional_boolean_parameters: true
     avoid_private_typedef_functions: true
     avoid_redundant_argument_values: true
@@ -68,17 +68,17 @@ linter:
     lines_longer_than_80_chars: true
     missing_whitespace_between_adjacent_strings: true
     no_default_cases: true
-    noop_primitive_operations: true
     no_runtimeType_toString: true
-    omit_local_variable_types: true
+    noop_primitive_operations: true
+    omit_local_variable_types: false
     one_member_abstracts: true
     only_throw_errors: true
     package_api_docs: true
     parameter_assignments: true
     prefer_asserts_in_initializer_lists: true
     prefer_asserts_with_message: true
-    prefer_const_constructors: true
     prefer_const_constructors_in_immutables: true
+    prefer_const_constructors: true
     prefer_const_declarations: true
     prefer_const_literals_to_create_immutables: true
     prefer_constructors_over_static_methods: true
@@ -102,6 +102,7 @@ linter:
     unawaited_futures: true
     unnecessary_await_in_return: true
     unnecessary_lambdas: true
+    unnecessary_library_directive: true
     unnecessary_null_aware_operator_on_extension_on_nullable: true
     unnecessary_null_checks: true
     unnecessary_parenthesis: true
