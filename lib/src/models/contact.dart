@@ -100,7 +100,11 @@ class Contact {
                   (final i) => InternetCall.fromMap(i as Map<String, dynamic>),
                 )
                 .toList(),
-        name = Name.fromMap(map[_nameKey] as Map<String, dynamic>),
+        name = map[_nameKey] == null
+            ? throw const FormatException(
+                'The [name] parameter cannot be null.',
+              )
+            : Name.fromMap(map[_nameKey] as Map<String, dynamic>),
         notes = map[_notesKey] == null ? null : '${map[_notesKey]}',
         organization = map[_organizationKey] == null
             ? null

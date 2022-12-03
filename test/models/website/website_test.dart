@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:contacts/src/models/chat.dart';
+import 'package:contacts/src/models/website.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -8,24 +8,24 @@ void main() {
     test(
       'The transitive property: if [b] = [a] and [c] = [b], then [c] = [a].',
       () {
-        const Chat a = Chat(
-          chat: 'chat',
+        const Website a = Website(
+          website: 'website',
           label: 'label',
         );
-        const Chat b = a;
-        const Chat c = b;
+        const Website b = a;
+        const Website c = b;
         expect(c, a);
       },
     );
     test(
       'The symmetric property: if [a] = [b], then [b] = [a].',
       () {
-        const Chat a = Chat(
-          chat: 'chat',
+        const Website a = Website(
+          website: 'website',
           label: 'label',
         );
-        const Chat b = Chat(
-          chat: 'chat',
+        const Website b = Website(
+          website: 'website',
           label: 'label',
         );
         expect(a, b);
@@ -34,98 +34,98 @@ void main() {
     );
   });
 
-  group('factory Chat.fromJson', () {
+  group('factory Website.fromJson', () {
     test(
-        'If the JSON string is a valid representation of an [Chat], must'
-        ' construct an [Chat] instance.', () async {
-      final file = File('test/models/chat/chat_test.json');
+        'If the JSON string is a valid representation of an [Website], must'
+        ' construct an [Website] instance.', () async {
+      final file = File('test/models/website/website_test.json');
       final json = await file.readAsString();
       expect(
-        Chat.fromJson(json),
-        const Chat(
-          chat: 'chat',
+        Website.fromJson(json),
+        const Website(
+          website: 'website',
           label: 'label',
         ),
-        reason: 'The JSON string is a valid representation of an [Chat]'
+        reason: 'The JSON string is a valid representation of an [Website]'
             ' instance.',
       );
     });
     test(
-        'If the JSON string is not a valid representation of a [Chat], this'
+        'If the JSON string is not a valid representation of a [Website], this'
         ' constructor must throw a [FormatException].', () async {
-      final file1 = File('test/models/chat/chat_not_valid_1_test.json');
+      final file1 = File('test/models/website/website_not_valid_1_test.json');
       final json1 = await file1.readAsString();
       expect(
-        () => Chat.fromJson(json1),
+        () => Website.fromJson(json1),
         throwsFormatException,
-        reason: 'Required parameter "chat" is not present.',
+        reason: 'Required parameter "website" is not present.',
       );
-      final file2 = File('test/models/chat/chat_not_valid_2_test.json');
+      final file2 = File('test/models/website/website_not_valid_2_test.json');
       final json2 = await file2.readAsString();
       expect(
-        () => Chat.fromJson(json2),
+        () => Website.fromJson(json2),
         throwsFormatException,
         reason: 'The JSON file contains only an empty object.',
       );
     });
   });
 
-  group('Chat.fromMap', () {
+  group('Website.fromMap', () {
     test(
-        'If the map is a valid representation of a [Chat] instance, this'
+        'If the map is a valid representation of a [Website] instance, this'
         ' constructor must create that instance.', () {
       final Map<String, dynamic> map = {
-        'chat': 'chat',
+        'website': 'website',
         'label': 'label',
       };
       expect(
-        Chat.fromMap(map),
-        const Chat(
-          chat: 'chat',
+        Website.fromMap(map),
+        const Website(
+          website: 'website',
           label: 'label',
         ),
       );
     });
     test(
-        'If the map is not a valid representation of a [Chat] instance, this'
+        'If the map is not a valid representation of a [Website] instance, this'
         ' constructor must throw a [FormatException].', () {
       final Map<String, dynamic> invalidMap = {
         'label': 'label',
       };
       expect(
-        () => Chat.fromMap(invalidMap),
+        () => Website.fromMap(invalidMap),
         throwsFormatException,
-        reason: '[invalidMap] does not contain "chat" key.',
+        reason: '[invalidMap] does not contain "website" key.',
       );
     });
   });
 
   group('copyWith', () {
-    const Chat chat = Chat(
-      chat: 'chat',
+    const Website website = Website(
+      website: 'website',
       label: 'label',
     );
     test(
       'This method must copy all parameters and update the ones provided.',
       () {
         expect(
-          chat.copyWith(),
-          chat,
+          website.copyWith(),
+          website,
           reason: 'Without any parameters passed to [copyWith], it must return'
-              ' the original [chat].',
+              ' the original [website].',
         );
         expect(
-          chat.copyWith(chat: 'other'),
-          const Chat(
-            chat: 'other',
+          website.copyWith(website: 'other'),
+          const Website(
+            website: 'other',
             label: 'label',
           ),
-          reason: 'The only parameter that has to change is "chat".',
+          reason: 'The only parameter that has to change is "website".',
         );
         expect(
-          chat.copyWith(label: 'other'),
-          const Chat(
-            chat: 'chat',
+          website.copyWith(label: 'other'),
+          const Website(
+            website: 'website',
             label: 'other',
           ),
           reason: 'The only parameter that has to change is "label".',
@@ -137,17 +137,17 @@ void main() {
   group('toJson', () {
     test('This method must return the corresponding JSON string.', () {
       expect(
-        const Chat(
-          chat: 'chat',
+        const Website(
           label: 'label',
+          website: 'website',
         ).toJson(),
-        '{"chat":"chat","label":"label"}',
+        '{"label":"label","website":"website"}',
         reason: 'No parameter is null.',
       );
       expect(
-        const Chat(chat: 'chat').toJson(),
-        '{"chat":"chat","label":null}',
-        reason: 'Only "chat" parameter is not null.',
+        const Website(website: 'website').toJson(),
+        '{"label":null,"website":"website"}',
+        reason: 'Only "website" parameter is not null.',
       );
     });
   });
@@ -155,25 +155,25 @@ void main() {
   group('toMap', () {
     test('This method must return the corresponding map.', () {
       expect(
-        const Chat(
-          chat: 'chat',
+        const Website(
           label: 'label',
+          website: 'website',
         ).toMap(),
         {
-          'chat': 'chat',
           'label': 'label',
+          'website': 'website',
         },
         reason: 'With all the parameters.',
       );
       expect(
-        const Chat(
-          chat: 'chat',
+        const Website(
+          website: 'website',
         ).toMap(),
         {
-          'chat': 'chat',
           'label': null,
+          'website': 'website',
         },
-        reason: 'Only "chat" parameter is not null.',
+        reason: 'Only "website" parameter is not null.',
       );
     });
   });

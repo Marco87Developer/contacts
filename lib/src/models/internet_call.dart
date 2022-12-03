@@ -34,7 +34,11 @@ class InternetCall {
   /// {@macro contacts.internetcall.oncecreatednopropertiesmaybechanged}
   ///
   InternetCall.fromMap(final Map<String, dynamic> map)
-      : internetCall = '${map[_internetCallKey]}',
+      : internetCall = map[_internetCallKey] == null
+            ? throw const FormatException(
+                'The [internetCall] parameter cannot be null.',
+              )
+            : '${map[_internetCallKey]}',
         label = map[_labelKey] == null ? null : '${map[_labelKey]}';
 
   /// The internet call

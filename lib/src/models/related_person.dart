@@ -35,7 +35,11 @@ class RelatedPerson {
   ///
   RelatedPerson.fromMap(final Map<String, dynamic> map)
       : label = map[_labelKey] == null ? null : '${map[_labelKey]}',
-        relatedPerson = '${map[_relatedPersonKey]}';
+        relatedPerson = map[_relatedPersonKey] == null
+            ? throw const FormatException(
+                'The [relatedPerson] parameter cannot be null.',
+              )
+            : '${map[_relatedPersonKey]}';
 
   /// The label.
   final String? label;

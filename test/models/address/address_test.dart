@@ -126,7 +126,7 @@ void main() {
     });
     test(
         'If the map is not a valid representation of a [Address] instance,'
-        ' this constructor must throw an [Error].', () {
+        ' this constructor must throw a [FormatException].', () {
       final Map<String, dynamic> invalidMap = {
         'city': 'city',
         'label': 'label',

@@ -35,7 +35,11 @@ class Phone {
   ///
   Phone.fromMap(final Map<String, dynamic> map)
       : label = map[_labelKey] == null ? null : '${map[_labelKey]}',
-        phone = '${map[_phoneKey]}';
+        phone = map[_phoneKey] == null
+            ? throw const FormatException(
+                'The [phone] parameter cannot be null.',
+              )
+            : '${map[_phoneKey]}';
 
   /// The label.
   final String? label;

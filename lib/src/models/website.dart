@@ -35,7 +35,11 @@ class Website {
   ///
   Website.fromMap(final Map<String, dynamic> map)
       : label = map[_labelKey] == null ? null : '${map[_labelKey]}',
-        website = '${map[_websiteKey]}';
+        website = map[_websiteKey] == null
+            ? throw const FormatException(
+                'The [website] parameter cannot be null.',
+              )
+            : '${map[_websiteKey]}';
 
   /// The label.
   final String? label;

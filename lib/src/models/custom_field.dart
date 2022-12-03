@@ -34,7 +34,11 @@ class CustomField {
   /// {@macro contacts.customfield.oncecreatednopropertiesmaybechanged}
   ///
   CustomField.fromMap(final Map<String, dynamic> map)
-      : customField = '${map[_customFieldKey]}',
+      : customField = map[_customFieldKey] == null
+            ? throw const FormatException(
+                'The [customField] parameter cannot be null.',
+              )
+            : '${map[_customFieldKey]}',
         label = map[_labelKey] == null ? null : '${map[_labelKey]}';
 
   /// The custom field.

@@ -34,7 +34,11 @@ class Event {
   /// {@macro contacts.event.oncecreatednopropertiesmaybechanged}
   ///
   Event.fromMap(final Map<String, dynamic> map)
-      : event = DateTime.parse('${map[_eventKey]}'),
+      : event = map[_eventKey] == null
+            ? throw const FormatException(
+                'The [event] parameter cannot be null.',
+              )
+            : DateTime.parse('${map[_eventKey]}'),
         label = map[_labelKey] == null ? null : '${map[_labelKey]}';
 
   /// The date of the event.
@@ -67,7 +71,7 @@ class Event {
   /// The resulting map can be parsed back using [Event.fromMap].
   ///
   Map<String, dynamic> toMap() => <String, dynamic>{
-        _eventKey: event,
+        _eventKey: event.toIso8601String(),
         _labelKey: label,
       };
 

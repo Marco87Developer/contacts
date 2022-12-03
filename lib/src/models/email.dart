@@ -34,7 +34,11 @@ class Email {
   /// {@macro contacts.email.oncecreatednopropertiesmaybechanged}
   ///
   Email.fromMap(final Map<String, dynamic> map)
-      : email = '${map[_emailKey]}',
+      : email = map[_emailKey] == null
+            ? throw const FormatException(
+                'The [email] parameter cannot be null.',
+              )
+            : '${map[_emailKey]}',
         label = map[_labelKey] == null ? null : '${map[_labelKey]}';
 
   /// The email.

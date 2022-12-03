@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:contacts/src/models/chat.dart';
+import 'package:contacts/src/models/event.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -8,24 +8,24 @@ void main() {
     test(
       'The transitive property: if [b] = [a] and [c] = [b], then [c] = [a].',
       () {
-        const Chat a = Chat(
-          chat: 'chat',
+        final Event a = Event(
+          event: DateTime(2022),
           label: 'label',
         );
-        const Chat b = a;
-        const Chat c = b;
+        final Event b = a;
+        final Event c = b;
         expect(c, a);
       },
     );
     test(
       'The symmetric property: if [a] = [b], then [b] = [a].',
       () {
-        const Chat a = Chat(
-          chat: 'chat',
+        final Event a = Event(
+          event: DateTime(2022),
           label: 'label',
         );
-        const Chat b = Chat(
-          chat: 'chat',
+        final Event b = Event(
+          event: DateTime(2022),
           label: 'label',
         );
         expect(a, b);
@@ -34,98 +34,98 @@ void main() {
     );
   });
 
-  group('factory Chat.fromJson', () {
+  group('factory Event.fromJson', () {
     test(
-        'If the JSON string is a valid representation of an [Chat], must'
-        ' construct an [Chat] instance.', () async {
-      final file = File('test/models/chat/chat_test.json');
+        'If the JSON string is a valid representation of an [Event], must'
+        ' construct an [Event] instance.', () async {
+      final file = File('test/models/event/event_test.json');
       final json = await file.readAsString();
       expect(
-        Chat.fromJson(json),
-        const Chat(
-          chat: 'chat',
+        Event.fromJson(json),
+        Event(
+          event: DateTime(2022),
           label: 'label',
         ),
-        reason: 'The JSON string is a valid representation of an [Chat]'
+        reason: 'The JSON string is a valid representation of an [Event]'
             ' instance.',
       );
     });
     test(
-        'If the JSON string is not a valid representation of a [Chat], this'
+        'If the JSON string is not a valid representation of a [Event], this'
         ' constructor must throw a [FormatException].', () async {
-      final file1 = File('test/models/chat/chat_not_valid_1_test.json');
+      final file1 = File('test/models/event/event_not_valid_1_test.json');
       final json1 = await file1.readAsString();
       expect(
-        () => Chat.fromJson(json1),
+        () => Event.fromJson(json1),
         throwsFormatException,
-        reason: 'Required parameter "chat" is not present.',
+        reason: 'Required parameter "event" is not present.',
       );
-      final file2 = File('test/models/chat/chat_not_valid_2_test.json');
+      final file2 = File('test/models/event/event_not_valid_2_test.json');
       final json2 = await file2.readAsString();
       expect(
-        () => Chat.fromJson(json2),
+        () => Event.fromJson(json2),
         throwsFormatException,
         reason: 'The JSON file contains only an empty object.',
       );
     });
   });
 
-  group('Chat.fromMap', () {
+  group('Event.fromMap', () {
     test(
-        'If the map is a valid representation of a [Chat] instance, this'
+        'If the map is a valid representation of a [Event] instance, this'
         ' constructor must create that instance.', () {
       final Map<String, dynamic> map = {
-        'chat': 'chat',
+        'event': '2022-01-01T00:00:00.000',
         'label': 'label',
       };
       expect(
-        Chat.fromMap(map),
-        const Chat(
-          chat: 'chat',
+        Event.fromMap(map),
+        Event(
+          event: DateTime(2022),
           label: 'label',
         ),
       );
     });
     test(
-        'If the map is not a valid representation of a [Chat] instance, this'
+        'If the map is not a valid representation of a [Event] instance, this'
         ' constructor must throw a [FormatException].', () {
       final Map<String, dynamic> invalidMap = {
         'label': 'label',
       };
       expect(
-        () => Chat.fromMap(invalidMap),
+        () => Event.fromMap(invalidMap),
         throwsFormatException,
-        reason: '[invalidMap] does not contain "chat" key.',
+        reason: '[invalidMap] does not contain "event" key.',
       );
     });
   });
 
   group('copyWith', () {
-    const Chat chat = Chat(
-      chat: 'chat',
+    final Event event = Event(
+      event: DateTime(2022),
       label: 'label',
     );
     test(
       'This method must copy all parameters and update the ones provided.',
       () {
         expect(
-          chat.copyWith(),
-          chat,
+          event.copyWith(),
+          event,
           reason: 'Without any parameters passed to [copyWith], it must return'
-              ' the original [chat].',
+              ' the original [event].',
         );
         expect(
-          chat.copyWith(chat: 'other'),
-          const Chat(
-            chat: 'other',
+          event.copyWith(event: DateTime(2023)),
+          Event(
+            event: DateTime(2023),
             label: 'label',
           ),
-          reason: 'The only parameter that has to change is "chat".',
+          reason: 'The only parameter that has to change is "event".',
         );
         expect(
-          chat.copyWith(label: 'other'),
-          const Chat(
-            chat: 'chat',
+          event.copyWith(label: 'other'),
+          Event(
+            event: DateTime(2022),
             label: 'other',
           ),
           reason: 'The only parameter that has to change is "label".',
@@ -137,17 +137,17 @@ void main() {
   group('toJson', () {
     test('This method must return the corresponding JSON string.', () {
       expect(
-        const Chat(
-          chat: 'chat',
+        Event(
+          event: DateTime(2022),
           label: 'label',
         ).toJson(),
-        '{"chat":"chat","label":"label"}',
+        '{"event":"2022-01-01T00:00:00.000","label":"label"}',
         reason: 'No parameter is null.',
       );
       expect(
-        const Chat(chat: 'chat').toJson(),
-        '{"chat":"chat","label":null}',
-        reason: 'Only "chat" parameter is not null.',
+        Event(event: DateTime(2022)).toJson(),
+        '{"event":"2022-01-01T00:00:00.000","label":null}',
+        reason: 'Only "event" parameter is not null.',
       );
     });
   });
@@ -155,25 +155,25 @@ void main() {
   group('toMap', () {
     test('This method must return the corresponding map.', () {
       expect(
-        const Chat(
-          chat: 'chat',
+        Event(
+          event: DateTime(2022),
           label: 'label',
         ).toMap(),
         {
-          'chat': 'chat',
+          'event': '2022-01-01T00:00:00.000',
           'label': 'label',
         },
         reason: 'With all the parameters.',
       );
       expect(
-        const Chat(
-          chat: 'chat',
+        Event(
+          event: DateTime(2022),
         ).toMap(),
         {
-          'chat': 'chat',
+          'event': '2022-01-01T00:00:00.000',
           'label': null,
         },
-        reason: 'Only "chat" parameter is not null.',
+        reason: 'Only "event" parameter is not null.',
       );
     });
   });
