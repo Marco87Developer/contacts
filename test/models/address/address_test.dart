@@ -57,7 +57,7 @@ void main() {
     test(
         'If the JSON string is a valid representation of an [Address], must'
         ' construct an [Address] instance.', () async {
-      final file = File('test/models/address_test.json');
+      final file = File('test/models/address/address_test.json');
       final json = await file.readAsString();
       expect(
         Address.fromJson(json),
@@ -78,7 +78,7 @@ void main() {
     test(
         'If the JSON string is not a valid representation of a [Address], this'
         ' constructor must throw a [FormatException].', () async {
-      final file1 = File('test/models/address_not_valid_1_test.json');
+      final file1 = File('test/models/address/address_not_valid_1_test.json');
       final json1 = await file1.readAsString();
       expect(
         () => Address.fromJson(json1),
@@ -86,7 +86,7 @@ void main() {
         reason: 'Parameter "countryRegion" is not a valid and unique'
             ' representation of a [Country] instance.',
       );
-      final file2 = File('test/models/address_not_valid_2_test.json');
+      final file2 = File('test/models/address/address_not_valid_2_test.json');
       final json2 = await file2.readAsString();
       expect(
         () => Address.fromJson(json2),
@@ -311,5 +311,47 @@ void main() {
     });
   });
 
-  group('toMap', () {});
+  group('toMap', () {
+    test('This method must return the corresponding map.', () {
+      expect(
+        const Address(
+          city: 'city',
+          countryRegion: Country.italy,
+          label: 'label',
+          poBox: 'poBox',
+          postalCode: 'postalCode',
+          provinceDepartment: 'provinceDepartment',
+          streetAddress: 'streetAddress',
+          streetAddressLine2: 'streetAddressLine2',
+        ).toMap(),
+        {
+          'city': 'city',
+          'countryRegion': 'Italy',
+          'label': 'label',
+          'poBox': 'poBox',
+          'postalCode': 'postalCode',
+          'provinceDepartment': 'provinceDepartment',
+          'streetAddress': 'streetAddress',
+          'streetAddressLine2': 'streetAddressLine2',
+        },
+        reason: 'With all the parameters.',
+      );
+      expect(
+        const Address(
+          countryRegion: Country.italy,
+        ).toMap(),
+        {
+          'city': null,
+          'countryRegion': 'Italy',
+          'label': null,
+          'poBox': null,
+          'postalCode': null,
+          'provinceDepartment': null,
+          'streetAddress': null,
+          'streetAddressLine2': null,
+        },
+        reason: 'Only with "countryRegion" parameter.',
+      );
+    });
+  });
 }

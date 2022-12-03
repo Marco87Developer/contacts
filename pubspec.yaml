@@ -17,4 +17,9 @@ dev_dependencies:
   test: ^1.16.0
 
 assets:
-  - test/models/address_test.json
+  - test/models/address/address_not_valid_1_test.json
+  - test/models/address/address_not_valid_2_test.json
+  - test/models/address/address_test.json
+  - test/models/chat/chat_not_valid_1_test.json
+  - test/models/chat/chat_not_valid_2_test.json
+  - test/models/chat/chat_test.json

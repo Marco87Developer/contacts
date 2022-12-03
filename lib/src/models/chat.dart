@@ -34,7 +34,11 @@ class Chat {
   /// {@macro contacts.chat.oncecreatednopropertiesmaybechanged}
   ///
   Chat.fromMap(final Map<String, dynamic> map)
-      : chat = '${map[_chatKey]}',
+      : chat = map[_chatKey] == null
+            ? throw const FormatException(
+                'The [chat] parameter cannot be null.',
+              )
+            : '${map[_chatKey]}',
         label = map[_labelKey] == null ? null : '${map[_labelKey]}';
 
   /// The chat.
