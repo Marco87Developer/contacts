@@ -15,11 +15,3 @@ dependencies:
 dev_dependencies:
   lints: ^2.0.0
   test: ^1.16.0
-
-assets:
-  - test/models/address/address_not_valid_1_test.json
-  - test/models/address/address_not_valid_2_test.json
-  - test/models/address/address_test.json
-  - test/models/chat/chat_not_valid_1_test.json
-  - test/models/chat/chat_not_valid_2_test.json
-  - test/models/chat/chat_test.json

@@ -1,0 +1,12 @@
+{
+    "fileAs": "fileAs",
+    "firstName": "firstName",
+    "lastName": "lastName",
+    "middleName": "middleName",
+    "nickname": "nickname",
+    "phoneticFirst": "phoneticFirst",
+    "phoneticLast": "phoneticLast",
+    "phoneticMiddle": "phoneticMiddle",
+    "prefix": "prefix",
+    "suffix": "suffix"
+}

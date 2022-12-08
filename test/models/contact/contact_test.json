@@ -1,0 +1,122 @@
+{
+    "addresses": [
+        {
+            "city": "city1",
+            "countryRegion": "italy",
+            "label": "label1",
+            "poBox": "poBox1",
+            "postalCode": "postalCode1",
+            "provinceDepartment": "provinceDepartment1",
+            "streetAddress": "streetAddress1",
+            "streetAddressLine2": "streetAddressLine21"
+        },
+        {
+            "city": "city2",
+            "countryRegion": "colombia",
+            "label": "label2",
+            "poBox": "poBox2",
+            "postalCode": "postalCode2",
+            "provinceDepartment": "provinceDepartment2",
+            "streetAddress": "streetAddress2",
+            "streetAddressLine2": "streetAddressLine22"
+        }
+    ],
+    "chats": [
+        {
+            "chat": "chat1",
+            "label": "label1"
+        },
+        {
+            "chat": "chat2",
+            "label": "label2"
+        }
+    ],
+    "customFields": [
+        {
+            "customField": "customField1",
+            "label": "label1"
+        },
+        {
+            "customField": "customField2",
+            "label": "label2"
+        }
+    ],
+    "emails": [
+        {
+            "email": "email1",
+            "label": "label1"
+        },
+        {
+            "email": "email2",
+            "label": "label2"
+        }
+    ],
+    "events": [
+        {
+            "event": "2022-01-01T00:00:00.000",
+            "label": "label1"
+        },
+        {
+            "event": "2022-07-01T00:00:00.000",
+            "label": "label2"
+        }
+    ],
+    "internetCalls": [
+        {
+            "internetCall": "internetCall1",
+            "label": "label1"
+        },
+        {
+            "internetCall": "internetCall2",
+            "label": "label2"
+        }
+    ],
+    "name": {
+        "fileAs": "fileAs",
+        "firstName": "firstName",
+        "lastName": "lastName",
+        "middleName": "middleName",
+        "nickname": "nickname",
+        "phoneticFirst": "phoneticFirst",
+        "phoneticLast": "phoneticLast",
+        "phoneticMiddle": "phoneticMiddle",
+        "prefix": "prefix",
+        "suffix": "suffix"
+    },
+    "notes": "notes",
+    "organization": {
+        "company": "company",
+        "department": "department",
+        "jobTitle": "jobTitle"
+    },
+    "phones": [
+        {
+            "phone": "phone1",
+            "label": "label1"
+        },
+        {
+            "phone": "phone2",
+            "label": "label2"
+        }
+    ],
+    "relatedPeople": [
+        {
+            "relatedPerson": "relatedPerson1",
+            "label": "label1"
+        },
+        {
+            "relatedPerson": "relatedPerson2",
+            "label": "label2"
+        }
+    ],
+    "websites": [
+        {
+            "website": "website1",
+            "label": "label1"
+        },
+        {
+            "website": "website2",
+            "label": "label2"
+        }
+    ]
+}

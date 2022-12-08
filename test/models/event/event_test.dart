@@ -67,6 +67,13 @@ void main() {
         throwsFormatException,
         reason: 'The JSON file contains only an empty object.',
       );
+      final file3 = File('test/models/event/event_not_valid_3_test.json');
+      final json3 = await file3.readAsString();
+      expect(
+        () => Event.fromJson(json3),
+        throwsFormatException,
+        reason: 'The [event] parameter cannot be parsed.',
+      );
     });
   });
 
