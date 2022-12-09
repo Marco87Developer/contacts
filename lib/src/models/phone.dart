@@ -47,6 +47,15 @@ class Phone {
   /// The phone number.
   final String phone;
 
+  // Future<bool> call() {
+  //   final Uri uri = Uri(
+  //     path: phone,
+  //     scheme: 'tel',
+  //   );
+
+  //   return lau
+  // }
+
   /// Creates a **copy** of this [Phone] instance but with the **given fields
   /// replaced** with the new values.
   ///
