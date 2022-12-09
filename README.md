@@ -1,6 +1,6 @@
 ![Pub Version (including pre-releases)](https://img.shields.io/pub/v/contacts?include_prereleases&style=flat-square)
-![Dart GitHub Actions](https://github.com/Marco87Developer/contacts/actions/workflows/dart.yml/badge.svg)
 ![GitHub Top Language](https://img.shields.io/github/languages/top/Marco87Developer/contacts?&style=flat-square)
+![Dart GitHub Actions](https://github.com/Marco87Developer/contacts/actions/workflows/dart.yml/badge.svg)
 
 A set of classes useful for managing contacts.
 
